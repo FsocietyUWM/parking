@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class User {
 	
 	@NotBlank
-	@Size(min=4, max=12)
+	@Size(min=4, max=16)
 	@Pattern(regexp="^\\w{4,}$")
 	private String username;
 	
