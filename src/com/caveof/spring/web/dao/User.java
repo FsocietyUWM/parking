@@ -8,18 +8,18 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class User {
 	
-	@NotBlank(message="Pole 'nazwa uzytkownika' nie moze byc puste.")
-	@Size(min=4, max=12, message="Nazwa uzytkownika musi byc dluga na conajmniej 4 znaki i nie wieksza niz 12 znakow.")
-	@Pattern(regexp="^\\w{4,}$", message="Nazwa uzytkownika moze zawierac tylko i wylacznie znaki alfanumeryczne.")
+	@NotBlank
+	@Size(min=4, max=12)
+	@Pattern(regexp="^\\w{4,}$")
 	private String username;
 	
-	@NotBlank(message="Pole 'haslo' nie moze byc puste.")
-	@Size(min=8, max=20, message="Haslo musi byc dlugie na conajmniej 8 znakow i nie wieksze niz 20 znakow.")
-	@Pattern(regexp="^\\S+$", message="Haslo nie moze zawierac bialych znakow.")
+	@NotBlank
+	@Size(min=8, max=20)
+	@Pattern(regexp="^\\S+$")
 	private String password;
 	
-	@NotBlank(message="Pole 'email' nie moze byc puste.")
-	@Email(message="Wyglada na to, ze email jest nie wlasciwy.")
+	@NotBlank
+	@Email
 	private String email;
 	
 	private boolean enabled = false;
