@@ -31,5 +31,11 @@
 	<p><a href="${pageContext.request.contextPath}/offers">Show current offers.</a></p>
 	<p><a href="${pageContext.request.contextPath}/createoffer">Add new offer.</a></p>
 	
+	<c:url var="logoutUrl" value="/logout"/>
+	<form action="${logoutUrl}" method="post">
+ 		<input type="submit" value="Log out" />
+ 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+	
 </body>
 </html>
