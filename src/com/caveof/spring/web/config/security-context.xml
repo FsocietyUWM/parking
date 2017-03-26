@@ -9,6 +9,7 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="dataSource"
 				id="jdbcUserService" />
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
 
@@ -27,10 +28,10 @@
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/offers" access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
+		
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
 		<security:logout logout-success-url="/loggedout" />
-
 
 		<security:access-denied-handler error-page="/denied" />
 		<security:remember-me key="parkingAppKey"
@@ -38,4 +39,8 @@
 	</security:http>
 
 	<security:global-method-security secured-annotations="enabled"></security:global-method-security>
+	
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</bean>
 </beans>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <p>Konto zostalo utworzone.</p><br/>
-<a href="${pageContext.request.contextPath}/offers/login">Zaloguj sie.</a>
+<a href="${pageContext.request.contextPath}/login">Zaloguj sie</a>
 
 </body>
 </html>
