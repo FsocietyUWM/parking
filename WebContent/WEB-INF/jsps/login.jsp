@@ -18,8 +18,8 @@
 		<p class="error">Login failed. Check that you username and password are correct.</p>
 	</c:if>
 	
-	
-	<form name='f' action='${pageContext.request.contextPath}/login' method='POST'>
+	<c:url var="loginUrl" value="/login"/>
+	<form name='f' action="${loginUrl}" method='POST'>
 		<table class="formtable">
 			<tr>
 				<td>User:</td>
@@ -28,6 +28,10 @@
 			<tr>
 				<td>Password:</td>
 				<td><input type='password' name='password' /></td>
+			</tr>
+			<tr>
+				<td>Remember me:</td>
+				<td><input type='checkbox' name='remember-me' checked="checked" /></td>
 			</tr>
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"

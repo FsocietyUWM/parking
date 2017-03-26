@@ -7,15 +7,8 @@
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="Damian" authorities="admin"
-					password="fsociety.py" />
-				<security:user name="Pawel" authorities="admin"
-					password="fsociety.py" />
-			</security:user-service>
-		</security:authentication-provider>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource" />
+			<security:jdbc-user-service data-source-ref="dataSource"
+				id="jdbcUserService" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 
@@ -37,8 +30,11 @@
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
 		<security:logout logout-success-url="/loggedout" />
-		
-		
+
+
+		<security:access-denied-handler error-page="/denied" />
+		<security:remember-me key="parkingAppKey"
+			user-service-ref="jdbcUserService" />
 	</security:http>
 
 	<security:global-method-security secured-annotations="enabled"></security:global-method-security>

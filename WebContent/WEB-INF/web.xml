@@ -12,6 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<description></description>
 		<display-name>offers</display-name>
@@ -23,6 +24,7 @@
 		<servlet-name>offers</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<description>Spring Database</description>
 	<resource-ref>
 		<description>DB Connection</description>
@@ -30,6 +32,7 @@
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -41,6 +44,7 @@
 		classpath:com/caveof/spring/web/config/security-context.xml
 		</param-value>
 	</context-param>
+	
 	<filter>
 		<display-name>springSecurityFilterChain</display-name>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -50,4 +54,6 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<session-config><session-timeout>15</session-timeout></session-config>
 </web-app>
