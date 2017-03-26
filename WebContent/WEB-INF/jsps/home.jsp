@@ -45,7 +45,7 @@
 		</form>
 	</sec:authorize>
 	
-	<sec:authorize access="hasAuthority('admin')">
+	<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 		<p><a href="<c:url value="/admin"/>">Admin</a></p>
 	</sec:authorize>
 	
