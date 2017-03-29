@@ -1,1 +1,4 @@
-Fsociety Sqad Project
+<div class="container">
+	<hr/>
+	Fsociety Sqad Project
+</div>

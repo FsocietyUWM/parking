@@ -1,5 +1,22 @@
 @CHARSET "UTF-8";
 
+div.header {
+	
+}
+
+div.content {
+	padding: 30px;
+}
+
+div.footer {
+	font-size: small;
+	color: gray;
+}
+
+ul.nav li.dropdown:hover>ul.dropdown-menu {
+	display: block;
+}
+
 .formtable {
 	width: 600px;
 	padding: 10px;
@@ -47,41 +64,5 @@ textarea {
 
 p.error {
 	font-size: medium;
-}
-
-div.footer {
-	font-size: small;
-	color: gray;
-}
-
-div.content {
-	position: relative;
-	padding: 40px;
-}
-
-div.header {
-	position: relative;
 	text-align: center;
-	width: 100%;
-	height: 40px;
-	background-color: teal;
 }
-
-a.login {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: white;
-}
-
-input.logout {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-a.title {
-	color: white;
-	font-size: 35px;
-}
-
