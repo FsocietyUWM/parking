@@ -68,4 +68,9 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/error.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="cennik" extends="parking.base">
+		<put-attribute name="title" value="Cennik parkingu"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/cennik.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

@@ -2,45 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <div class="container">
-    <h1>LOGO</h1>
-
-</div>
-<div class="container">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-
-            <ul class="nav navbar-nav">
-                <li><a href="StronaGlowna.html">Strona główna</a></li>
-                <li><a href="DokonajRezerwacji.html">Dokonaj rezerwacji</a></li>
-                <li><a href="#">Cennik</a></li>
-                <li><a href="Kontakt.html">Kontakt</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle"  href="#">Dojazd
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Parking 1</a></li>
-                        <li><a href="#">Parking 2</a></li>
-                        <li><a href="#">Parking 3</a></li>
-                    </ul>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" href="#">Mój profil
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Moje dane</a></li>
-                        <li><a href="#">Moje rezerwacje</a></li>
-                        <li><a href="#">Zmień hasło</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Załóż konto</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<div class="container">
     <form method="post" action="https://secure.payu.com/api/v2_1/orders">
         <input type="hidden" name="continueUrl" value="http://shop.url/continue">
         <input type="hidden" name="currencyCode" value="PLN">
