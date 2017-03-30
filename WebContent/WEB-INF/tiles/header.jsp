@@ -14,12 +14,12 @@
 		<div class="container-fluid">
 
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="<c:url value="/"/>">Strona główna</a></li>
-				<li class="active"><a href="#">Dokonaj rezerwacji</a></li>
-				<li class="active"><a href="#">Cennik</a></li>
-				<li class="active"><a href="#">Kontakt</a></li>
+				<li><a href="<c:url value="/"/>">Strona główna</a></li>
+				<li><a href="#">Dokonaj rezerwacji</a></li>
+				<li><a href="#">Cennik</a></li>
+				<li><a href="#">Kontakt</a></li>
 				
-				<li class="dropdown active"><a class="dropdown-toggle" href="#">Dojazd&nbsp;<span class="caret"></span></a>
+				<li class="dropdown"><a class="dropdown-toggle" href="#">Dojazd&nbsp;<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Parking 1</a></li>
 						<li><a href="#">Parking 2</a></li>
