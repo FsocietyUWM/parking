@@ -17,7 +17,7 @@
 				<li><a href="<c:url value="/"/>">Strona główna</a></li>
 				<li><a href="#">Dokonaj rezerwacji</a></li>
 				<li><a href="<c:url value="/cennik"/>">Cennik</a></li>
-				<li><a href="#">Kontakt</a></li>
+				<li><a href="<c:url value="/kontakt"/>">Kontakt</a></li>
 				
 				<li class="dropdown"><a class="dropdown-toggle" href="#">Dojazd&nbsp;<span class="caret"></span></a>
 					<ul class="dropdown-menu">

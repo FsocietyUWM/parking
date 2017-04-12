@@ -20,5 +20,10 @@ public class HomeController {
 	public String showCennik() {
 		return "cennik";
 	}
+	
+	@RequestMapping("/kontakt")
+	public String showKontakt() {
+		return "kontakt";
+	}
 
 }

@@ -73,4 +73,9 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/cennik.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="kontakt" extends="parking.base">
+		<put-attribute name="title" value="Skontaktuj sie z nami"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/kontakt.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
