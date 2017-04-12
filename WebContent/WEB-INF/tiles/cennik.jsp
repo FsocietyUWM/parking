@@ -1,6 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Rodzaj pojazdu
+			</th>
+			<th>
+				Ilosc dni
+			</th>
+			<th>
+				Cena
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				
+			</td>
+			<td>
+				1
+			</td>
+			<td>
+				15 zł
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				3
+			</td>
+			<td>
+				40 zł
+			</td>
+		</tr>
+		<tr>
+		<td>Samochod osobowy</td>
+			<td>
+				7
+			</td>
+			<td>
+				80 zł
+			</td>
+		</tr>
+		<tr>
+		<td></td>
+			<td>
+				14
+			</td>
+			<td>
+				150 zł
+			</td>
+		</tr>
+		<tr>
+		<td></td>
+			<td>
+				30
+			</td>
+			<td>
+				200 zł
+			</td>
+		</tr>
+	</tbody>
+</table>
 <div class="container">
     <form method="post" action="https://secure.payu.com/api/v2_1/orders">
         <input type="hidden" name="continueUrl" value="http://shop.url/continue">
