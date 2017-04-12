@@ -66,3 +66,10 @@ p.error {
 	font-size: medium;
 	text-align: center;
 }
+
+.sep {
+	border-bottom:2px solid #dddddd;
+}
+.sep td {
+	padding-bottom:5px;
+}

@@ -9,59 +9,66 @@
 				Rodzaj pojazdu
 			</th>
 			<th>
-				Ilosc dni
+				Długość parkowania
 			</th>
 			<th>
-				Cena
+				Cena za dzień
 			</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
+			<td>Samochod osobowy</td>
 			<td>
-				
+				mniej niż tydzień
 			</td>
 			<td>
-				1
+				20 zł
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				ponad tydzień
 			</td>
 			<td>
 				15 zł
 			</td>
 		</tr>
 		<tr>
-			<td></td>
+			<td class="sep"></td>
+			<td class="sep">
+				ponad miesiąc
+			</td>
+			<td class="sep">
+				10 zł
+			</td>
+		</tr>
+		<tr>
+			<td>Samochod ciężarowy</td>
 			<td>
-				3
+				mniej niż tydzień
 			</td>
 			<td>
 				40 zł
 			</td>
 		</tr>
 		<tr>
-		<td>Samochod osobowy</td>
+			<td></td>
 			<td>
-				7
+				ponad tydzień
 			</td>
 			<td>
-				80 zł
-			</td>
-		</tr>
-		<tr>
-		<td></td>
-			<td>
-				14
-			</td>
-			<td>
-				150 zł
+				30 zł
 			</td>
 		</tr>
 		<tr>
-		<td></td>
+			<td></td>
 			<td>
-				30
+				ponad miesiąc
 			</td>
 			<td>
-				200 zł
+				20 zł
 			</td>
 		</tr>
 	</tbody>
@@ -81,5 +88,4 @@
         <input type="hidden" name="OpenPayu-Signature" value="sender=145227;algorithm=SHA-256;signature=bc94a8026d6032b5e216be112a5fb7544e66e23e68d44b4283ff495bdb3983a8">
         <button type="submit" formtarget="_blank" >Pay with PayU</button>
     </form >
-	Jestem Mariusz.
 </div>
