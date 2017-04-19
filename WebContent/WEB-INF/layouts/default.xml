@@ -19,23 +19,23 @@
 	
 	<definition name="login" extends="parking.base">
 		<put-attribute name="title" value="Login"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/login.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/login.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="loggedout" extends="parking.base">
 		<put-attribute name="title" value="Loggedout Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/loggedout.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/loggedout.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="newaccount" extends="parking.base">
-		<put-attribute name="includes" value="/WEB-INF/tiles/newaccountscript.jsp"></put-attribute>
+		<put-attribute name="includes" value="/WEB-INF/tiles/account/newaccountscript.jsp"></put-attribute>
 		<put-attribute name="title" value="Create Account"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/newaccount.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/newaccount.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="accountcreated" extends="parking.base">
 		<put-attribute name="title" value="Account Created Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/accountcreated.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/accountcreated.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="admin" extends="parking.base">
@@ -45,32 +45,37 @@
 	
 	<definition name="offers" extends="parking.base">
 		<put-attribute name="title" value="Current Offers"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/offers.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/offers.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="createoffer" extends="parking.base">
 		<put-attribute name="title" value="Create Offer Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/createoffer.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/createoffer.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="offercreated" extends="parking.base">
 		<put-attribute name="title" value="Offer Created Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/offercreated.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/offercreated.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="denied" extends="parking.base">
 		<put-attribute name="title" value="Access Denied Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/denied.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/denied.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="error" extends="parking.base">
 		<put-attribute name="title" value="Something goes wrong"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/error.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/error.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="cennik" extends="parking.base">
 		<put-attribute name="title" value="Cennik parkingu"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/cennik.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/cennik/cennik.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="editcennik" extends="parking.base">
+		<put-attribute name="title" value="Zmien cennik parkingu"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/cennik/editcennik.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="kontakt" extends="parking.base">
