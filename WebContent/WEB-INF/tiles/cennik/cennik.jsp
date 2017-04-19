@@ -1,78 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <table class="table">
 	<thead>
 		<tr>
-			<th>
-				Rodzaj pojazdu
-			</th>
-			<th>
-				Długość parkowania
-			</th>
-			<th>
-				Cena za dzień
-			</th>
+			<th>Rodzaj pojazdu</th>
+			<th>Długość parkowania</th>
+			<th>Cena za dzień</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Samochod osobowy</td>
-			<td>
-				mniej niż tydzień
-			</td>
-			<td>
-				20 zł
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				ponad tydzień
-			</td>
-			<td>
-				15 zł
-			</td>
-		</tr>
-		<tr>
-			<td class="sep"></td>
-			<td class="sep">
-				ponad miesiąc
-			</td>
-			<td class="sep">
-				10 zł
-			</td>
-		</tr>
-		<tr>
-			<td>Samochod ciężarowy</td>
-			<td>
-				mniej niż tydzień
-			</td>
-			<td>
-				40 zł
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				ponad tydzień
-			</td>
-			<td>
-				30 zł
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				ponad miesiąc
-			</td>
-			<td>
-				20 zł
-			</td>
-		</tr>
+		<c:forEach var="price" items="${prices}">
+			<tr>
+				<td><c:out value="${price.vehicleType}"></c:out></td>
+				<td>mniej niż tydzień</td>
+				<td><c:out value="${price.oneDay}"></c:out> zł</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>ponad tydzień</td>
+				<td><c:out value="${price.oneDayMoreThanWeek}"></c:out> zł</td>
+			</tr>
+			<tr>
+				<td class="sep"></td>
+				<td class="sep">ponad miesiąc</td>
+				<td class="sep"><c:out value="${price.oneDayMoreThanMonth}"></c:out> zł</td>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
+
+<a href="<c:url value="/editcennik"/>">Edytuj cennik</a>
+
+
 <div class="container">
     <form method="post" action="https://secure.payu.com/api/v2_1/orders">
         <input type="hidden" name="continueUrl" value="http://shop.url/continue">

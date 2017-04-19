@@ -20,6 +20,7 @@
 		<security:intercept-url pattern="/offercreated" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/cennik" access="permitAll" />
+		<security:intercept-url pattern="/editcennik" access="permitAll" />
 		<security:intercept-url pattern="/kontakt" access="permitAll" />
 		<security:intercept-url pattern="/denied" access="permitAll" />
 		<security:intercept-url pattern="/loggedout" access="permitAll" />

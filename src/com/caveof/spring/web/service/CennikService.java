@@ -11,23 +11,17 @@ import com.caveof.spring.web.dao.CennikDao;
 import com.caveof.spring.web.dao.Offer;
 import com.caveof.spring.web.dao.OffersDao;
 
-@Service("offersService")
-public class OffersService {
+@Service("cennikService")
+public class CennikService {
 	
-	private OffersDao offersDao;
+	private CennikDao cennikDao;
 	
 	@Autowired
-	public void setOffersDao(OffersDao offersDao) {
-		this.offersDao = offersDao;
+	public void setCennikDao(CennikDao cennikDao) {
+		this.cennikDao = cennikDao;
 	}
 	
-	public List<Offer> getCurrent() {
-		return offersDao.getOffers();
+	public List<Cennik> getCurrentCennik() {
+		return cennikDao.getCennik();
 	}
-	
-	@Secured({"ROLE_USER", "ROLE_ADMIN"})
-	public void create(Offer offer) {
-		offersDao.create(offer);
-	}
-	
 }
