@@ -26,8 +26,6 @@ tutaj bedzie formularz do edycji cennika
 								class="btn btn-info">Zapisz </a>
 						</div>
 					</div>
-
-				</sf:form>
 			</div>
 		</div>
 

@@ -2,6 +2,7 @@ package com.caveof.spring.web.controllers;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ import com.caveof.spring.web.service.OffersService;
 
 @Controller
 public class HomeController {
+	
+	private static Logger logger = Logger.getLogger(HomeController.class);
 	
 	private OffersService offersService;
 	private CennikService cennikService;
@@ -30,6 +33,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String showHome() {
+		logger.info("Showing home page...");
 		return "home";
 	}
 	

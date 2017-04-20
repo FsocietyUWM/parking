@@ -42,8 +42,6 @@
 								class="btn btn-info">Zmień hasło </a>
 						</div>
 					</div>
-
-				</sf:form>
 			</div>
 		</div>
 
