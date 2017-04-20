@@ -6,7 +6,7 @@
 
 
 <div class="container">
-	<h1>LOGO</h1>
+<img src="${pageContext.request.contextPath}/static/images/parking-logo2.png" width="720" height="130">
 
 </div>
 <div class="container">

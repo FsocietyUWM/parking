@@ -1,11 +1,12 @@
 @CHARSET "UTF-8";
 
 div.header {
-	
+	text-align: center;
 }
 
 div.content {
 	padding: 30px;
+	
 }
 
 div.footer {
