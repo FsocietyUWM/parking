@@ -1,5 +1,6 @@
 package com.caveof.spring.web.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.caveof.spring.web.dao.Cennik;
+import com.caveof.spring.web.dao.Offer;
 import com.caveof.spring.web.dao.User;
 import com.caveof.spring.web.service.CennikService;
 import com.caveof.spring.web.service.OffersService;
@@ -16,24 +18,29 @@ import com.caveof.spring.web.service.OffersService;
 @Controller
 public class HomeController {
 	
-	private static Logger logger = Logger.getLogger(HomeController.class);
+	//private static Logger logger = Logger.getLogger(HomeController.class);
 	
+	@Autowired
 	private OffersService offersService;
+	
+	@Autowired
 	private CennikService cennikService;
 	
-	@Autowired
-	public void setOffersService(OffersService offersService) {
-		this.offersService = offersService;
-	}
-	
-	@Autowired
-	public void setCennikService(CennikService cennikService) {
-		this.cennikService = cennikService;
-	}
 
 	@RequestMapping("/")
-	public String showHome() {
-		logger.info("Showing home page...");
+	public String showHome(Model model, Principal principal) {
+		
+		//logger.info("Showing home page...");
+		
+		List<Offer> offers = offersService.getCurrent();
+		model.addAttribute("offers", offers);
+		
+		boolean hasOffer = false;
+		if(principal != null) {
+			hasOffer = offersService.hasOffer(principal.getName());
+		}
+		model.addAttribute("hasOffer", hasOffer);
+		
 		return "home";
 	}
 	

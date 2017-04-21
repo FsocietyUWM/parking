@@ -3,16 +3,16 @@
 
 
 <table class="offers">
-<tr>
-	<td>Name</td>
-	<td>Email</td>
-	<td>Text</td>
-</tr>
-<c:forEach var="offer" items="${offers}">
 	<tr>
-		<td><c:out value="${offer.name}"></c:out></td>
-		<td><c:out value="${offer.email}"></c:out></td>
-		<td><c:out value="${offer.text}"></c:out></td>
+		<td>Username</td>
+		<td>Email</td>
+		<td>Text</td>
 	</tr>
-</c:forEach>
+	<c:forEach var="offer" items="${offers}">
+		<tr>
+			<td><c:out value="${offer.user.username}"></c:out></td>
+			<td><c:out value="${offer.user.email}"></c:out></td>
+			<td><c:out value="${offer.text}"></c:out></td>
+		</tr>
+	</c:forEach>
 </table>

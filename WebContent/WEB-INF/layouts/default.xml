@@ -58,6 +58,11 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/other/offercreated.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="offerdeleted" extends="parking.base">
+		<put-attribute name="title" value="Offer Deleted Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/other/offerdeleted.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="denied" extends="parking.base">
 		<put-attribute name="title" value="Access Denied Page"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/other/denied.jsp"></put-attribute>

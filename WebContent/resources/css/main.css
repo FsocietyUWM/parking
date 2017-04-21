@@ -20,6 +20,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 .formtable {
 	width: 600px;
+	height: 600px;
 	padding: 10px;
 	border: 1px solid blue;
 }
@@ -59,6 +60,7 @@ textarea {
 }
 
 .offers {
+	width: 700px;
 	padding: 20px;
 	border: 1px solid gray;
 }
