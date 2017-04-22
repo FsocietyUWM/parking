@@ -1,25 +1,32 @@
 package com.caveof.spring.web.dao;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+
+@Entity //javax.persistence, NIE hibernate
+@Table(name="users")
 public class User {
 	
-	@NotBlank
-	@Size(min=4, max=16)
-	@Pattern(regexp="^\\w{4,}$")
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=4, max=16, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\w{4,}$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Id
 	private String username;
 	
-	@NotBlank
-	@Size(min=8, max=20)
-	@Pattern(regexp="^\\S+$")
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=20, groups={FormValidationGroup.class})
+	@Pattern(regexp="^\\S+$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	private String password;
 	
-	@NotBlank
-	@Email
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Email(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	private String email;
 	
 	private boolean enabled = false;

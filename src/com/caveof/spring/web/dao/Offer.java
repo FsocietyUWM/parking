@@ -1,14 +1,29 @@
 package com.caveof.spring.web.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+@Entity // ¯eby hibernate móg³ to znaleŸæ
+@Table(name="offers")
 public class Offer {
 
+	@Id // Primary key
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // Autoincrement
 	private int id;
 	
 	@Size(min=20, max=255, message="Text must be between 20 and 255 characters.")
+	@Column(name="text") // tak dla przypomnienia, gdybym zmienil nazwe kolumny w BD
 	private String text;
 
+	@ManyToOne
+	@JoinColumn(name="username")
 	private User user;
 	
 	public Offer() {

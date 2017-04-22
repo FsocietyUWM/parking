@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
-import com.caveof.spring.web.dao.Cennik;
-import com.caveof.spring.web.dao.CennikDao;
 import com.caveof.spring.web.dao.Offer;
 import com.caveof.spring.web.dao.OffersDao;
 
@@ -27,7 +25,7 @@ public class OffersService {
 	
 	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	public void create(Offer offer) {
-		offersDao.create(offer);
+		offersDao.saveOrUpdate(offer);
 	}
 
 	public boolean hasOffer(String username) {
@@ -59,13 +57,7 @@ public class OffersService {
 	}
 
 	public void createOrUpdate(Offer offer) {
-		
-		if(offer.getId() != 0) {
-			offersDao.update(offer);
-		}
-		else {
-			offersDao.create(offer);
-		}
+		offersDao.saveOrUpdate(offer);
 	}
 
 	public void delete(int id) {
