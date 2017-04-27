@@ -38,6 +38,26 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/account/accountcreated.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="userdetails" extends="parking.base">
+		<put-attribute name="title" value="Dane szczegolowe uzytkownika"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/userdetails.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="userdetailsupdated" extends="parking.base">
+		<put-attribute name="title" value="Dane zaktualizowane"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/userdetailsupdated.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="changepw" extends="parking.base">
+		<put-attribute name="title" value="Zmien swoje haslo"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/changepw.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="pwupdated" extends="parking.base">
+		<put-attribute name="title" value="Haslo zostalo zmienione"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/account/pwupdated.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="admin" extends="parking.base">
 		<put-attribute name="title" value="Admin Page"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/admin.jsp"></put-attribute>
@@ -81,6 +101,16 @@
 	<definition name="editcennik" extends="parking.base">
 		<put-attribute name="title" value="Zmien cennik parkingu"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/cennik/editcennik.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addtocennik" extends="parking.base">
+		<put-attribute name="title" value="Dodaj pozycje do cennika"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/cennik/addtocennik.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="cennikupdated" extends="parking.base">
+		<put-attribute name="title" value="Cennik zostal zaktualizowany"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/cennik/cennikupdated.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="kontakt" extends="parking.base">

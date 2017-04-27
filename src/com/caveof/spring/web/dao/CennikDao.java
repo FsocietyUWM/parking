@@ -2,35 +2,50 @@ package com.caveof.spring.web.dao;
 
 import java.util.List;
 
-import javax.sql.DataSource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
 @Component("cennikDao")
 public class CennikDao {
 
-	private NamedParameterJdbcTemplate jdbc;
-
 	@Autowired
-	public void setDataSource(DataSource jdbc) {
-		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
+	private SessionFactory sessionFactory;
+	
+	public Session session() {
+		return sessionFactory.getCurrentSession();
 	}
 	
+	//////////////////////////////////////////////////////////
 	
+	
+	@SuppressWarnings("unchecked")
 	public List<Cennik> getCennik() {
-
-		return jdbc.query("select * from pricelist", new CennikRowMapper());
+		return session().createQuery("from Cennik").list();
 	}
 	
-	// Metoda aktualizujaca rekord w bazie danych
-	public boolean update(Cennik cennik) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(cennik);
-		
-		return jdbc.update("update pricelist set oneDay = :oneDay, oneDayMoreThanWeek = :oneDayMoreThanWeek, oneDayMoreThanMonth = :oneDayMoreThanMonth where vehicleType = :vehicleType", params) == 1;
+	// Metoda tworzaca lub aktualizujaca rekord w BD
+	public void saveOrUpdate(Cennik cennik) {
+		session().saveOrUpdate(cennik);
 	}
-
+	
+	public void delete(Cennik cennik) {
+		session().delete(cennik);
+	}
+	
+	/* Usuwanie po id
+	public boolean delete(int id) {
+		Query query = session().createQuery("delete from Cennik where id=:id");
+		query.setLong("id", id);
+		return query.executeUpdate() == 1;
+	}
+	*/
 
 }

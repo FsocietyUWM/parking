@@ -11,57 +11,60 @@ import com.caveof.spring.web.dao.OffersDao;
 
 @Service("offersService")
 public class OffersService {
-	
+
 	private OffersDao offersDao;
-	
+
 	@Autowired
 	public void setOffersDao(OffersDao offersDao) {
 		this.offersDao = offersDao;
 	}
 	
-	public List<Offer> getCurrent() {
+	//////////////////////////////////////////////////////////
+
+	
+	public List<Offer> getOffers() {
 		return offersDao.getOffers();
 	}
 	
-	@Secured({"ROLE_USER", "ROLE_ADMIN"})
-	public void create(Offer offer) {
-		offersDao.saveOrUpdate(offer);
-	}
-
-	public boolean hasOffer(String username) {
-		
-		if(username == null) {
-			return false;
-		}
-			
-		List<Offer> offers = offersDao.getOffers(username);
-		if(offers.size() == 0) {
-			return false;
-		}
-		
-		return true;
-	}
 
 	public Offer getOffer(String username) {
-		
-		if(username == null) {
+
+		if (username == null) {
 			return null;
 		}
-		
+
 		List<Offer> offers = offersDao.getOffers(username);
-		if(offers.size() == 0) {
+		if (offers.size() == 0) {
 			return null;
 		}
-		
+
 		return offers.get(0);
 	}
-
-	public void createOrUpdate(Offer offer) {
+	
+	
+	@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+	public void saveOrUpdate(Offer offer) {
 		offersDao.saveOrUpdate(offer);
 	}
+	
 
 	public void delete(int id) {
 		offersDao.delete(id);
 	}
-	
+
+
+	public boolean hasOffer(String username) {
+
+		if (username == null) {
+			return false;
+		}
+
+		List<Offer> offers = offersDao.getOffers(username);
+		if (offers.size() == 0) {
+			return false;
+		}
+
+		return true;
+	}
+
 }

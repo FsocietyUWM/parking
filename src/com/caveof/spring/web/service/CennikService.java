@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.caveof.spring.web.dao.Cennik;
 import com.caveof.spring.web.dao.CennikDao;
+import com.caveof.spring.web.dao.Offer;
 
 @Service("cennikService")
 public class CennikService {
@@ -18,7 +19,18 @@ public class CennikService {
 		this.cennikDao = cennikDao;
 	}
 	
-	public List<Cennik> getCurrentCennik() {
+	//////////////////////////////////////////////////////////
+	
+	
+	public List<Cennik> getCennik() {
 		return cennikDao.getCennik();
+	}
+	
+	public void saveOrUpdate(Cennik cennik) {
+		cennikDao.saveOrUpdate(cennik);
+	}
+	
+	public void delete(Cennik cennik) {
+		cennikDao.delete(cennik);
 	}
 }

@@ -104,7 +104,4 @@ public class Offer {
 	public String toString() {
 		return "Offer [id=" + id + ", text=" + text + ", user=" + user + "]";
 	}
-
-	
-
 }

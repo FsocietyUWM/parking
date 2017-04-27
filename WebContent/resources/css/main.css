@@ -70,9 +70,17 @@ p.error {
 	text-align: center;
 }
 
+/*
+* --- TABLE CELL ---
+*/
+
 .sep {
 	border-bottom:2px solid #dddddd;
 }
 .sep td {
 	padding-bottom:5px;
+}
+
+.noBorderBottom {
+	border-bottom-style: hidden;
 }

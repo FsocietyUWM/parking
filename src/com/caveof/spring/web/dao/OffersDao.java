@@ -23,6 +23,8 @@ public class OffersDao {
 	public Session session() {
 		return sessionFactory.getCurrentSession();
 	}
+	
+	//////////////////////////////////////////////////////////
 
 	
 	// Metoda wyciagajaca z bazy wszystkie rekordy z tabeli offers

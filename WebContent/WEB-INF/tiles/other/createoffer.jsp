@@ -35,7 +35,6 @@
 								href="javascript:document.getElementById('details').submit();"
 								class="btn btn-info">Zapisz zmiany </a>
 						</div>
-						<br />
 					</div>
 
 					<c:if test="${offer.id != 0}">

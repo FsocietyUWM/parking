@@ -1,7 +1,10 @@
 package com.caveof.spring.web.dao;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -31,9 +34,13 @@ public class User {
 	
 	private boolean enabled = false;
 	private String authority;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private UserDetails userDetails;
 
 	public User() {
-		
+		this.userDetails = new UserDetails();
 	}
 	
 	public User(String username, String password, String email, boolean enabled, String authority) {
@@ -84,6 +91,13 @@ public class User {
 		this.authority = authority;
 	}
 
+	public UserDetails getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(UserDetails userDetails) {
+		this.userDetails = userDetails;
+	}
 
 	@Override
 	public int hashCode() {
@@ -127,11 +141,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", enabled=" + enabled
-				+ ", authority=" + authority + "]";
+		return "User [username=" + username + ", email=" + email + ", enabled=" + enabled + ", authority=" + authority
+				+ ", userDetails=" + userDetails + "]";
 	}
-	
-	
-	
-	
 }

@@ -15,10 +15,9 @@
 
 	<mvc:resources location="/resources/" mapping="/static/**"></mvc:resources>
 
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="com.caveof.spring.web.messages.messages">
-		</property>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="com.caveof.spring.web.messages.messages"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 
 	<bean id="tilesViewResolver"

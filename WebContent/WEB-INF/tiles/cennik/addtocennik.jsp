@@ -7,40 +7,27 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>Zaznacz aby usunąć</th>
 			<th>Rodzaj pojazdu</th>
 			<th>Długość parkowania</th>
 			<th>Cena za dzień</th>
 		</tr>
 	</thead>
 	<tbody>
-		
-		<c:forEach items="${cennikPrices.cennikPrices}" var="price" varStatus="current">
-			
-			<sf:input type="hidden" path="cennikPrices[${current.index}].id" />
-			
 			<tr>
-				<td class="noBorderBottom"><sf:checkbox path="cennikPrices[${current.index}].toRemove"/></td>
-				<td class="noBorderBottom"><sf:input path="cennikPrices[${current.index}].vehicleType"/></td>
+				<td class="noBorderBottom"><sf:input path="cennikPrices[0].vehicleType"/></td>
 				<td>mniej niż tydzień</td>
-				<td><sf:input path="cennikPrices[${current.index}].oneDay"/> zł</td>
+				<td><sf:input path="cennikPrices[0].oneDay"/> zł</td>
 			</tr>
-			
 			<tr>
-				<td class="noBorderBottom"></td>
 				<td class="noBorderBottom"></td>
 				<td>ponad tydzień</td>
-				<td><sf:input path="cennikPrices[${current.index}].oneDayMoreThanWeek"/> zł</td>
+				<td><sf:input path="cennikPrices[0].oneDayMoreThanWeek"/> zł</td>
 			</tr>
-			
 			<tr>
 				<td class="sep"></td>
-				<td class="sep"></td>
 				<td class="sep">ponad miesiąc</td>
-				<td class="sep"><sf:input path="cennikPrices[${current.index}].oneDayMoreThanMonth"/> zł</td>
+				<td class="sep"><sf:input path="cennikPrices[0].oneDayMoreThanMonth"/> zł</td>
 			</tr>
-			
-		</c:forEach>
 	</tbody>
 </table>
 </sf:form>
@@ -50,6 +37,6 @@
 	<div class="col-sm-12 controls">
 		<a id="btn-signup"
 			href="javascript:document.getElementById('cennik_form').submit();"
-			class="btn btn-success">Zapisz zmiany </a>
+			class="btn btn-success">Dodaj do cennika </a>
 	</div>
 </div>

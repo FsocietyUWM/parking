@@ -60,10 +60,10 @@ public class OfferDaoTests {
 	
 	@Test
 	public void testDelete() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		usersDao.create(user4);
+		usersDao.createUser(user1);
+		usersDao.createUser(user2);
+		usersDao.createUser(user3);
+		usersDao.createUser(user4);
 		offersDao.saveOrUpdate(offer1);
 		offersDao.saveOrUpdate(offer2);
 		offersDao.saveOrUpdate(offer3);
@@ -83,10 +83,10 @@ public class OfferDaoTests {
 	
 	@Test
 	public void testGetById() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		usersDao.create(user4);
+		usersDao.createUser(user1);
+		usersDao.createUser(user2);
+		usersDao.createUser(user3);
+		usersDao.createUser(user4);
 		offersDao.saveOrUpdate(offer1);
 		offersDao.saveOrUpdate(offer2);
 		offersDao.saveOrUpdate(offer3);
@@ -104,10 +104,10 @@ public class OfferDaoTests {
 
 	@Test
 	public void testCreateRetrieve() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		usersDao.create(user4);
+		usersDao.createUser(user1);
+		usersDao.createUser(user2);
+		usersDao.createUser(user3);
+		usersDao.createUser(user4);
 		
 		offersDao.saveOrUpdate(offer1);
 		List<Offer> offers1 = offersDao.getOffers();
@@ -128,10 +128,10 @@ public class OfferDaoTests {
 	
 	@Test
 	public void testUpdate() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		usersDao.create(user4);
+		usersDao.createUser(user1);
+		usersDao.createUser(user2);
+		usersDao.createUser(user3);
+		usersDao.createUser(user4);
 		offersDao.saveOrUpdate(offer1);
 		offersDao.saveOrUpdate(offer2);
 		offersDao.saveOrUpdate(offer3);
@@ -148,10 +148,10 @@ public class OfferDaoTests {
 	
 	@Test
 	public void testGetUsername() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		usersDao.create(user4);
+		usersDao.createUser(user1);
+		usersDao.createUser(user2);
+		usersDao.createUser(user3);
+		usersDao.createUser(user4);
 		offersDao.saveOrUpdate(offer1);
 		offersDao.saveOrUpdate(offer2);
 		offersDao.saveOrUpdate(offer3);

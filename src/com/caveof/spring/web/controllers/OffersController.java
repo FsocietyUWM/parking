@@ -19,34 +19,17 @@ import com.caveof.spring.web.service.OffersService;
 @Controller
 public class OffersController {
 
-	private OffersService offersService;
-
 	@Autowired
-	public void setOffersService(OffersService offersService) {
-		this.offersService = offersService;
-	}
+	private OffersService offersService;
+	
+	//////////////////////////////////////////////////////////
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String showTest(Model model, @RequestParam("id") String id) {
-
-		System.out.println("Id is: " + id);
-		return "home";
-	}
-
-	/*
-	 * @ExceptionHandler(DataAccessException.class) public String
-	 * handleDatabaseException(DataAccessException ex) { return "error"; }
-	 */
 
 	@RequestMapping("/offers")
 	public String showOffers(Model model) {
 
-		// offersService.throwTestException();
-
-		List<Offer> offers = offersService.getCurrent();
-
+		List<Offer> offers = offersService.getOffers();
 		model.addAttribute("offers", offers);
-
 		return "offers";
 	}
 
@@ -81,7 +64,7 @@ public class OffersController {
 		if (delete == null) {
 			String username = principal.getName();
 			offer.getUser().setUsername(username);
-			offersService.createOrUpdate(offer);
+			offersService.saveOrUpdate(offer);
 			return "offercreated";
 		}
 		else {

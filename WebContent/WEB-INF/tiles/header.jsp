@@ -6,7 +6,7 @@
 
 
 <div class="container">
-<img src="${pageContext.request.contextPath}/static/images/parking-logo2.png" width="720" height="130">
+<img src="${pageContext.request.contextPath}/static/images/parking-logo.png">
 
 </div>
 <div class="container">
@@ -30,9 +30,9 @@
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown"><a class="dropdown-toggle" href="#">Mój profil&nbsp;<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Moje dane</a></li>
+							<li><a href="<c:url value="/userdetails"/>">Moje dane</a></li>
 							<li><a href="#">Moje rezerwacje</a></li>
-							<li><a href="#">Zmień hasło</a></li>
+							<li><a href="<c:url value="/changepw"/>">Zmień hasło</a></li>
 						</ul>
 					</li>
 				</sec:authorize>

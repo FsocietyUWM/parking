@@ -27,26 +27,43 @@ public class UsersDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
+	//////////////////////////////////////////////////////////
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<User> getAllUsers() {
+		return session().createQuery("from User").list();
+	}
+	
+	public User getUser(String username) {
+		Criteria crit = session().createCriteria(User.class);
+		crit.add(Restrictions.idEq(username));
+		return (User)crit.uniqueResult();
+	}
+	
+	
 	// Metoda tworzaca uzytkownika w bazie danych
 	@Transactional
-	public void create(User user) {
+	public void createUser(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		session().save(user);
 	}
 
 
-	public boolean exists(String username) {
+	public boolean userExists(String username) {
 		Criteria crit = session().createCriteria(User.class);
 		crit.add(Restrictions.idEq(username));
 		User user = (User)crit.uniqueResult();
 		return user != null;
 	}
-
-
-	@SuppressWarnings("unchecked")
-	public List<User> getAllUsers() {
-		return session().createQuery("from User").list();
+	
+	public void changeUserPassword(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		session().saveOrUpdate(user);
 	}
-
+	
+	public void saveOrUpdate(User user) {
+		session().saveOrUpdate(user);
+	}
 
 }

@@ -1,23 +1,44 @@
 package com.caveof.spring.web.dao;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="pricelist")
 public class Cennik {
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // Autoincrement
+	private int id;
+	
 	private String vehicleType;
 	private double oneDay;
 	private double oneDayMoreThanWeek;
 	private double oneDayMoreThanMonth;
+	private boolean toRemove = false;
 
 	
 	public Cennik() {
 		
 	}
 	
-	public Cennik(String vehicleType, double oneDay, double oneDayMoreThanWeek, double oneDayMoreThanMonth) {
+	public Cennik(String vehicleType, double oneDay, double oneDayMoreThanWeek, double oneDayMoreThanMonth, boolean toRemove) {
 		this.vehicleType = vehicleType;
 		this.oneDay = oneDay;
 		this.oneDayMoreThanWeek = oneDayMoreThanWeek;
 		this.oneDayMoreThanMonth = oneDayMoreThanMonth;
+		this.toRemove = toRemove;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getVehicleType() {
@@ -51,10 +72,19 @@ public class Cennik {
 	public void setOneDayMoreThanMonth(double oneDayMoreThanMonth) {
 		this.oneDayMoreThanMonth = oneDayMoreThanMonth;
 	}
+	
+	public boolean isToRemove() {
+		return toRemove;
+	}
+
+	public void setToRemove(boolean toRemove) {
+		this.toRemove = toRemove;
+	}
 
 	@Override
 	public String toString() {
-		return "Cennik [vehicleType=" + vehicleType + ", v=" + oneDay + ", oneDayMoreThanWeek=" + oneDayMoreThanWeek + ", oneDayMoreThanMonth=" + oneDayMoreThanMonth + "]";
+		return "Cennik [id=" + id + ", vehicleType=" + vehicleType + ", oneDay=" + oneDay + ", oneDayMoreThanWeek="
+				+ oneDayMoreThanWeek + ", oneDayMoreThanMonth=" + oneDayMoreThanMonth + ", toRemove=" + toRemove + "]";
 	}
 
 }
