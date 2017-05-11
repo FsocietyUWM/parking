@@ -9,24 +9,19 @@
 		<tr>
 			<th>Rodzaj pojazdu</th>
 			<th>Długość parkowania</th>
-			<th>Cena za dzień</th>
+			<th>Cena</th>
 		</tr>
 	</thead>
 	<tbody>
 			<tr>
 				<td class="noBorderBottom"><sf:input path="cennikPrices[0].vehicleType"/></td>
-				<td>mniej niż tydzień</td>
-				<td><sf:input path="cennikPrices[0].oneDay"/> zł</td>
-			</tr>
-			<tr>
-				<td class="noBorderBottom"></td>
-				<td>ponad tydzień</td>
-				<td><sf:input path="cennikPrices[0].oneDayMoreThanWeek"/> zł</td>
+				<td>24 H</td>
+				<td><sf:input path="cennikPrices[0].pricePerDay"/> zł</td>
 			</tr>
 			<tr>
 				<td class="sep"></td>
-				<td class="sep">ponad miesiąc</td>
-				<td class="sep"><sf:input path="cennikPrices[0].oneDayMoreThanMonth"/> zł</td>
+				<td class="sep">1 miesiąc</td>
+				<td class="sep"><sf:input path="cennikPrices[0].pricePerMonth"/> zł</td>
 			</tr>
 	</tbody>
 </table>

@@ -15,7 +15,7 @@
 
 			<ul class="nav navbar-nav">
 				<li><a href="<c:url value="/"/>">Strona główna</a></li>
-				<li><a href="#">Dokonaj rezerwacji</a></li>
+				<li><a href="<c:url value="/newreservation"/>">Dokonaj rezerwacji</a></li>
 				<li><a href="<c:url value="/cennik"/>">Cennik</a></li>
 				<li><a href="<c:url value="/kontakt"/>">Kontakt</a></li>
 				
@@ -31,7 +31,7 @@
 					<li class="dropdown"><a class="dropdown-toggle" href="#">Mój profil&nbsp;<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="<c:url value="/userdetails"/>">Moje dane</a></li>
-							<li><a href="#">Moje rezerwacje</a></li>
+							<li><a href="<c:url value="/myreservations"/>">Moje rezerwacje</a></li>
 							<li><a href="<c:url value="/changepw"/>">Zmień hasło</a></li>
 						</ul>
 					</li>

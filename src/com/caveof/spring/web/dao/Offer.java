@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class Offer {
 
 	@Id // Primary key
-	@GeneratedValue(strategy=GenerationType.IDENTITY) // Autoincrement
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@Size(min=20, max=255, message="Text must be between 20 and 255 characters.")

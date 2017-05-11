@@ -26,6 +26,14 @@
 		<security:intercept-url pattern="/updatecennik" access="permitAll" />
 		<security:intercept-url pattern="/addtocennik" access="permitAll" />
 		<security:intercept-url pattern="/kontakt" access="permitAll" />
+		<security:intercept-url pattern="/parkingspaces" access="permitAll" />
+		<security:intercept-url pattern="/newparkingspace" access="permitAll" />
+		<security:intercept-url pattern="/createparkingspace" access="permitAll" />
+		<security:intercept-url pattern="/newreservation" access="permitAll" />
+		<security:intercept-url pattern="/nospaces" access="permitAll" />
+		<security:intercept-url pattern="/createreservation" access="permitAll" />
+		<security:intercept-url pattern="/reservationcreated" access="permitAll" />
+		<security:intercept-url pattern="/myreservations" access="permitAll" />
 		<security:intercept-url pattern="/denied" access="permitAll" />
 		<security:intercept-url pattern="/loggedout" access="permitAll" />
 		<security:intercept-url pattern="/newaccount" access="permitAll" />

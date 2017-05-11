@@ -6,25 +6,20 @@
 		<tr>
 			<th>Rodzaj pojazdu</th>
 			<th>Długość parkowania</th>
-			<th>Cena za dzień</th>
+			<th>Cena</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="price" items="${prices}">
 			<tr>
 				<td class="noBorderBottom"><c:out value="${price.vehicleType}"></c:out></td>
-				<td>mniej niż tydzień</td>
-				<td><c:out value="${price.oneDay}"></c:out> zł</td>
-			</tr>
-			<tr>
-				<td class="noBorderBottom"></td>
-				<td>ponad tydzień</td>
-				<td><c:out value="${price.oneDayMoreThanWeek}"></c:out> zł</td>
+				<td>24 H</td>
+				<td><c:out value="${price.pricePerDay}"></c:out> zł</td>
 			</tr>
 			<tr>
 				<td class="sep"></td>
-				<td class="sep">ponad miesiąc</td>
-				<td class="sep"><c:out value="${price.oneDayMoreThanMonth}"></c:out> zł</td>
+				<td class="sep">1 miesiąc</td>
+				<td class="sep"><c:out value="${price.pricePerMonth}"></c:out> zł</td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -22,22 +22,15 @@
 			<tr>
 				<td class="noBorderBottom"><sf:checkbox path="cennikPrices[${current.index}].toRemove"/></td>
 				<td class="noBorderBottom"><sf:input path="cennikPrices[${current.index}].vehicleType"/></td>
-				<td>mniej niż tydzień</td>
-				<td><sf:input path="cennikPrices[${current.index}].oneDay"/> zł</td>
-			</tr>
-			
-			<tr>
-				<td class="noBorderBottom"></td>
-				<td class="noBorderBottom"></td>
-				<td>ponad tydzień</td>
-				<td><sf:input path="cennikPrices[${current.index}].oneDayMoreThanWeek"/> zł</td>
+				<td>24 H</td>
+				<td><sf:input path="cennikPrices[${current.index}].pricePerDay"/> zł</td>
 			</tr>
 			
 			<tr>
 				<td class="sep"></td>
 				<td class="sep"></td>
-				<td class="sep">ponad miesiąc</td>
-				<td class="sep"><sf:input path="cennikPrices[${current.index}].oneDayMoreThanMonth"/> zł</td>
+				<td class="sep">miesiąc</td>
+				<td class="sep"><sf:input path="cennikPrices[${current.index}].pricePerMonth"/> zł</td>
 			</tr>
 			
 		</c:forEach>

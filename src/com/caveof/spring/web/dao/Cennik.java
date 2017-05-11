@@ -15,9 +15,8 @@ public class Cennik {
 	private int id;
 	
 	private String vehicleType;
-	private double oneDay;
-	private double oneDayMoreThanWeek;
-	private double oneDayMoreThanMonth;
+	private double pricePerDay;
+	private double pricePerMonth;
 	private boolean toRemove = false;
 
 	
@@ -25,11 +24,10 @@ public class Cennik {
 		
 	}
 	
-	public Cennik(String vehicleType, double oneDay, double oneDayMoreThanWeek, double oneDayMoreThanMonth, boolean toRemove) {
+	public Cennik(String vehicleType, double pricePerDay, double pricePerMonth, boolean toRemove) {
 		this.vehicleType = vehicleType;
-		this.oneDay = oneDay;
-		this.oneDayMoreThanWeek = oneDayMoreThanWeek;
-		this.oneDayMoreThanMonth = oneDayMoreThanMonth;
+		this.pricePerDay = pricePerDay;
+		this.pricePerMonth = pricePerMonth;
 		this.toRemove = toRemove;
 	}
 	
@@ -48,31 +46,23 @@ public class Cennik {
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
 	}
-
-	public double getOneDay() {
-		return oneDay;
-	}
-
-	public void setOneDay(double oneDay) {
-		this.oneDay = oneDay;
-	}
-
-	public double getOneDayMoreThanWeek() {
-		return oneDayMoreThanWeek;
-	}
-
-	public void setOneDayMoreThanWeek(double oneDayMoreThanWeek) {
-		this.oneDayMoreThanWeek = oneDayMoreThanWeek;
-	}
-
-	public double getOneDayMoreThanMonth() {
-		return oneDayMoreThanMonth;
-	}
-
-	public void setOneDayMoreThanMonth(double oneDayMoreThanMonth) {
-		this.oneDayMoreThanMonth = oneDayMoreThanMonth;
-	}
 	
+	public double getPricePerDay() {
+		return pricePerDay;
+	}
+
+	public void setPricePerDay(double pricePerDay) {
+		this.pricePerDay = pricePerDay;
+	}
+
+	public double getPricePerMonth() {
+		return pricePerMonth;
+	}
+
+	public void setPricePerMonth(double pricePerMonth) {
+		this.pricePerMonth = pricePerMonth;
+	}
+
 	public boolean isToRemove() {
 		return toRemove;
 	}
@@ -83,8 +73,8 @@ public class Cennik {
 
 	@Override
 	public String toString() {
-		return "Cennik [id=" + id + ", vehicleType=" + vehicleType + ", oneDay=" + oneDay + ", oneDayMoreThanWeek="
-				+ oneDayMoreThanWeek + ", oneDayMoreThanMonth=" + oneDayMoreThanMonth + ", toRemove=" + toRemove + "]";
+		return "Cennik [id=" + id + ", vehicleType=" + vehicleType + ", pricePerDay=" + pricePerDay + ", pricePerMonth="
+				+ pricePerMonth + ", toRemove=" + toRemove + "]";
 	}
 
 }

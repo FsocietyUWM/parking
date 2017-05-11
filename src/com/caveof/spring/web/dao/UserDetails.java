@@ -1,5 +1,8 @@
 package com.caveof.spring.web.dao;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -15,6 +18,7 @@ public class UserDetails {
 	private String name;
 	private String surname;
 	private String phoneNumber;
+	private String birthDate;
 	private String address;
 	private String postalCode;
 	private String city;
@@ -23,10 +27,11 @@ public class UserDetails {
 
 	}
 	
-	public UserDetails(String name, String surname, String phoneNumber, String address, String postalCode, String city) {
+	public UserDetails(String name, String surname, String phoneNumber, String birthDate, String address, String postalCode, String city) {
 		this.name = name;
 		this.surname = surname;
 		this.phoneNumber = phoneNumber;
+		this.birthDate = birthDate;
 		this.address = address;
 		this.postalCode = postalCode;
 		this.city = city;
@@ -64,6 +69,14 @@ public class UserDetails {
 		this.phoneNumber = phoneNumber;
 	}
 
+	public String getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -91,7 +104,7 @@ public class UserDetails {
 	@Override
 	public String toString() {
 		return "UserDetails [username=" + username + ", name=" + name + ", surname=" + surname + ", phoneNumber="
-				+ phoneNumber + ", address=" + address + ", postalCode=" + postalCode + ", city=" + city + "]";
+				+ phoneNumber + ", birthDate=" + birthDate + ", address=" + address + ", postalCode=" + postalCode
+				+ ", city=" + city + "]";
 	}
-	
 }
