@@ -91,5 +91,19 @@ public class ReservationsService {
 	public ParkingSpace getAvailableParkingSpace() {
 		return reservationsDao.getAvailableParkingSpace();
 	}
+	
+	public int getNumberOfAllParkingSpaces() {
+		return reservationsDao.getNumberOfAllParkingSpaces();
+	}
+	
+	public int getNumberOfAvailableParkingSpaces() {
+		return reservationsDao.getNumberOfAvailableParkingSpaces();
+	}
+	
+	public int getNumberOfTakenParkingSpaces() {
+		return reservationsDao.getNumberOfTakenParkingSpaces();
+	}
+	
+	
 
 }

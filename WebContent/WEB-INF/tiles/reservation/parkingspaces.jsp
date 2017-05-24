@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<h4 style="color:blue">Ilość wszystkich miejsc: ${iloscWszyskichMiejsc}</h4>
+<h4 style="color:green">Ilość wolnych miejsc: ${iloscWolnychMiejsc}</h4>
+<h4 style="color:red">Ilość zajętych miejsc: ${iloscZajetychMiejsc}</h4>
+<br>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -11,7 +16,7 @@
 	<tbody>
 		<c:forEach var="space" items="${parkingSpaces}">
 			<tr>
-				<td><c:out value="${space.spaceNumber}"></c:out></td>
+				<td style="color:blue"><c:out value="${space.spaceNumber}"></c:out></td>
 				<td>
 					<c:if test="${space.available}">
 						<p style="color:green; display:inline">WOLNE</p>

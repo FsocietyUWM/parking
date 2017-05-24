@@ -4,8 +4,8 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>Ważność od</th>
-			<th>Ważność do</th>
+			<th>Ważność od początku dnia</th>
+			<th>Ważność do końca dnia</th>
 			<th>Ilość pojazdów</th>
 			<th>Koszt rezerwacji</th>
 			<th>Czy opłacona?</th>

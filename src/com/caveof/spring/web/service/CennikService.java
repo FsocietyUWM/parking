@@ -26,6 +26,10 @@ public class CennikService {
 		return cennikDao.getCennik();
 	}
 	
+	public Cennik getCennikByVehicleType(String vehicleType) {
+		return cennikDao.getCennikByVehicleType(vehicleType);
+	}
+	
 	public void saveOrUpdate(Cennik cennik) {
 		cennikDao.saveOrUpdate(cennik);
 	}

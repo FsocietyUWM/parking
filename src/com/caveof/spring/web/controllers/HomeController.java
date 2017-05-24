@@ -9,12 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.caveof.spring.web.dao.Cennik;
 import com.caveof.spring.web.dao.CennikPrices;
 import com.caveof.spring.web.dao.Offer;
-import com.caveof.spring.web.dao.User;
 import com.caveof.spring.web.service.CennikService;
 import com.caveof.spring.web.service.OffersService;
 

@@ -15,13 +15,13 @@
 	<tbody>
 			<tr>
 				<td class="noBorderBottom"><sf:input path="cennikPrices[0].vehicleType"/></td>
-				<td>24 H</td>
-				<td><sf:input path="cennikPrices[0].pricePerDay"/> zł</td>
+				<td>Pierwsza doba</td>
+				<td><sf:input path="cennikPrices[0].firstDayPrice"/> zł</td>
 			</tr>
 			<tr>
 				<td class="sep"></td>
-				<td class="sep">1 miesiąc</td>
-				<td class="sep"><sf:input path="cennikPrices[0].pricePerMonth"/> zł</td>
+				<td class="sep">Każda kolejna doba</td>
+				<td class="sep"><sf:input path="cennikPrices[0].nextDayPrice"/> zł</td>
 			</tr>
 	</tbody>
 </table>

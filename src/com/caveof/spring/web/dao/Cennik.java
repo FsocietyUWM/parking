@@ -15,8 +15,8 @@ public class Cennik {
 	private int id;
 	
 	private String vehicleType;
-	private double pricePerDay;
-	private double pricePerMonth;
+	private double firstDayPrice;
+	private double nextDayPrice;
 	private boolean toRemove = false;
 
 	
@@ -24,10 +24,10 @@ public class Cennik {
 		
 	}
 	
-	public Cennik(String vehicleType, double pricePerDay, double pricePerMonth, boolean toRemove) {
+	public Cennik(String vehicleType, double firstDayPrice, double nextDayPrice, boolean toRemove) {
 		this.vehicleType = vehicleType;
-		this.pricePerDay = pricePerDay;
-		this.pricePerMonth = pricePerMonth;
+		this.firstDayPrice = firstDayPrice;
+		this.nextDayPrice = nextDayPrice;
 		this.toRemove = toRemove;
 	}
 	
@@ -47,20 +47,20 @@ public class Cennik {
 		this.vehicleType = vehicleType;
 	}
 	
-	public double getPricePerDay() {
-		return pricePerDay;
+	public double getFirstDayPrice() {
+		return firstDayPrice;
 	}
 
-	public void setPricePerDay(double pricePerDay) {
-		this.pricePerDay = pricePerDay;
+	public void setFirstDayPrice(double firstDayPrice) {
+		this.firstDayPrice = firstDayPrice;
 	}
 
-	public double getPricePerMonth() {
-		return pricePerMonth;
+	public double getNextDayPrice() {
+		return nextDayPrice;
 	}
 
-	public void setPricePerMonth(double pricePerMonth) {
-		this.pricePerMonth = pricePerMonth;
+	public void setNextDayPrice(double nextDayPrice) {
+		this.nextDayPrice = nextDayPrice;
 	}
 
 	public boolean isToRemove() {
@@ -73,8 +73,8 @@ public class Cennik {
 
 	@Override
 	public String toString() {
-		return "Cennik [id=" + id + ", vehicleType=" + vehicleType + ", pricePerDay=" + pricePerDay + ", pricePerMonth="
-				+ pricePerMonth + ", toRemove=" + toRemove + "]";
+		return "Cennik [id=" + id + ", vehicleType=" + vehicleType + ", firstDayPrice=" + firstDayPrice + ", nextDayPrice="
+				+ nextDayPrice + ", toRemove=" + toRemove + "]";
 	}
 
 }

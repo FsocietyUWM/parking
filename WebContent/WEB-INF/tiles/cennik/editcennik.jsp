@@ -10,7 +10,7 @@
 			<th>Zaznacz aby usunąć</th>
 			<th>Rodzaj pojazdu</th>
 			<th>Długość parkowania</th>
-			<th>Cena za dzień</th>
+			<th>Cena</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,15 +22,15 @@
 			<tr>
 				<td class="noBorderBottom"><sf:checkbox path="cennikPrices[${current.index}].toRemove"/></td>
 				<td class="noBorderBottom"><sf:input path="cennikPrices[${current.index}].vehicleType"/></td>
-				<td>24 H</td>
-				<td><sf:input path="cennikPrices[${current.index}].pricePerDay"/> zł</td>
+				<td>Pierwsza doba</td>
+				<td><sf:input path="cennikPrices[${current.index}].firstDayPrice"/> zł</td>
 			</tr>
 			
 			<tr>
 				<td class="sep"></td>
 				<td class="sep"></td>
-				<td class="sep">miesiąc</td>
-				<td class="sep"><sf:input path="cennikPrices[${current.index}].pricePerMonth"/> zł</td>
+				<td class="sep">Każda kolejna doba</td>
+				<td class="sep"><sf:input path="cennikPrices[${current.index}].nextDayPrice"/> zł</td>
 			</tr>
 			
 		</c:forEach>

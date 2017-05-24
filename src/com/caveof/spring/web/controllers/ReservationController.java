@@ -3,28 +3,22 @@ package com.caveof.spring.web.controllers;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.caveof.spring.web.dao.Cennik;
-import com.caveof.spring.web.dao.CennikPrices;
-import com.caveof.spring.web.dao.Offer;
 import com.caveof.spring.web.dao.ParkingSpace;
 import com.caveof.spring.web.dao.Reservation;
 import com.caveof.spring.web.dao.ReservationDetails;
 import com.caveof.spring.web.dao.User;
-import com.caveof.spring.web.dao.UserDetails;
 import com.caveof.spring.web.dao.Vehicle;
 import com.caveof.spring.web.service.CennikService;
-import com.caveof.spring.web.service.OffersService;
 import com.caveof.spring.web.service.ReservationsService;
 import com.caveof.spring.web.service.UsersService;
 
@@ -36,6 +30,9 @@ public class ReservationController {
 	
 	@Autowired
 	private UsersService usersService;
+	
+	@Autowired
+	private CennikService cennikService;
 
 	//////////////////////////////////////////////////////////
 	
@@ -62,8 +59,14 @@ public class ReservationController {
 		vehicles.add(new Vehicle());
 		vehicles.add(new Vehicle());
 		reservationDetails.setVehicles(vehicles);
+		
+		List<Cennik> prices = cennikService.getCennik();
+		reservationDetails.setCennikPrices(prices);
+		
+		int iloscWolnychMiejsc = reservationsService.getNumberOfAvailableParkingSpaces();
 
 		model.addAttribute("reservationDetails", reservationDetails);
+		model.addAttribute("iloscWolnychMiejsc", iloscWolnychMiejsc);
 
 		return "newreservation";
 	}
@@ -102,6 +105,25 @@ public class ReservationController {
 			}
 		}
 		
+		double naleznosc = 0;
+		
+		long diffInMillies = reservation.getExpirationDate().getTime() - reservation.getStartDate().getTime();
+		long dlugoscRezerwacjiWDniach = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS) + 1;
+		
+		for(Vehicle vehicle : vehicles) {
+			if (!vehicle.getRegistrationNumber().isEmpty())
+			{
+				String vehicleType = vehicle.getVehicleType();
+				Cennik cennik = cennikService.getCennikByVehicleType(vehicleType);
+				
+				naleznosc += cennik.getFirstDayPrice();
+				naleznosc += (dlugoscRezerwacjiWDniach - 1) * cennik.getNextDayPrice();
+			}
+		}
+		
+		reservation.setCharge(naleznosc);
+		reservationsService.saveOrUpdate(reservation);
+		
 		return "reservationcreated";
 	}
 	
@@ -109,7 +131,15 @@ public class ReservationController {
 	public String showParkingSpaces(Model model) {
 		
 		List<ParkingSpace> parkingSpaces = reservationsService.getParkingSpaces();
+		
+		int iloscWszyskichMiejsc = reservationsService.getNumberOfAllParkingSpaces();
+		int iloscWolnychMiejsc = reservationsService.getNumberOfAvailableParkingSpaces();
+		int iloscZajetychMiejsc = reservationsService.getNumberOfTakenParkingSpaces();
+		
 		model.addAttribute("parkingSpaces", parkingSpaces);
+		model.addAttribute("iloscWszyskichMiejsc", iloscWszyskichMiejsc);
+		model.addAttribute("iloscWolnychMiejsc", iloscWolnychMiejsc);
+		model.addAttribute("iloscZajetychMiejsc", iloscZajetychMiejsc);
 
 		return "parkingspaces";
 	}

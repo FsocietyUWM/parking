@@ -3,8 +3,10 @@ package com.caveof.spring.web.controllers;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.caveof.spring.web.dao.Cennik;
-import com.caveof.spring.web.dao.CennikPrices;
 import com.caveof.spring.web.dao.FormValidationGroup;
 import com.caveof.spring.web.dao.PasswordOldNew;
-import com.caveof.spring.web.dao.Offer;
 import com.caveof.spring.web.dao.User;
 import com.caveof.spring.web.dao.UserDetails;
 import com.caveof.spring.web.service.UsersService;
@@ -66,7 +65,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(value="/createaccount", method=RequestMethod.POST)
-	public String createAccount(@Validated(FormValidationGroup.class) User user, BindingResult result) {
+	public String createAccount(@Validated(FormValidationGroup.class) User user, BindingResult result, HttpServletRequest request, HttpServletResponse response) {
 		
 		if(result.hasErrors()) {
 			return "newaccount";
@@ -81,6 +80,13 @@ public class LoginController {
 			return "newaccount";
 		}
 		usersService.createUser(user);
+		
+		try{
+			request.login(user.getUsername(), user.getPassword());
+		} catch(Exception e){
+	        e.printStackTrace();
+		}
+		
 		
 		/*
 		try {

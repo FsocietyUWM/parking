@@ -98,5 +98,21 @@ public class ReservationsDao {
 		return (ParkingSpace)crit.list().get(0);
 	}
 	
+	public int getNumberOfAllParkingSpaces() {
+		Criteria crit = session().createCriteria(ParkingSpace.class);
+		return crit.list().size();
+	}
+	
+	public int getNumberOfAvailableParkingSpaces() {
+		Criteria crit = session().createCriteria(ParkingSpace.class);
+		crit.add(Restrictions.eq("available", true));
+		return crit.list().size();
+	}
+	
+	public int getNumberOfTakenParkingSpaces() {
+		Criteria crit = session().createCriteria(ParkingSpace.class);
+		crit.add(Restrictions.eq("available", false));
+		return crit.list().size();
+	}	
 
 }

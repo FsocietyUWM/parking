@@ -2,9 +2,10 @@ package com.caveof.spring.web.dao;
 
 import java.util.List;
 
-
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,6 +30,13 @@ public class CennikDao {
 	@SuppressWarnings("unchecked")
 	public List<Cennik> getCennik() {
 		return session().createQuery("from Cennik").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Cennik getCennikByVehicleType(String vehicleType) {
+		Criteria crit = session().createCriteria(Cennik.class);
+		crit.add(Restrictions.eq("vehicleType", vehicleType));
+		return (Cennik)crit.uniqueResult();
 	}
 	
 	// Metoda tworzaca lub aktualizujaca rekord w BD

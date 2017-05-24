@@ -18,6 +18,7 @@ public class ReservationDetails {
 
 	private Reservation reservation;
 	private List<Vehicle> vehicles;
+	private List<Cennik> cennikPrices;
 	
 	public ReservationDetails() {
 	}
@@ -38,9 +39,18 @@ public class ReservationDetails {
 		this.vehicles = vehicles;
 	}
 
+	public List<Cennik> getCennikPrices() {
+		return cennikPrices;
+	}
+
+	public void setCennikPrices(List<Cennik> cennikPrices) {
+		this.cennikPrices = cennikPrices;
+	}
+
 	@Override
 	public String toString() {
-		return "ReservationDetails [reservation=" + reservation + ", vehicles=" + vehicles + "]";
+		return "ReservationDetails [reservation=" + reservation + ", vehicles=" + vehicles + ", cennikPrices="
+				+ cennikPrices + "]";
 	}
 
 }

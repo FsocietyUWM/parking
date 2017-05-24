@@ -2,10 +2,16 @@ package com.caveof.spring.web.dao;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -18,7 +24,12 @@ public class UserDetails {
 	private String name;
 	private String surname;
 	private String phoneNumber;
-	private String birthDate;
+	
+	@Column(name = "birthDate", columnDefinition="DATE")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date birthDate;
+	
 	private String address;
 	private String postalCode;
 	private String city;
@@ -27,7 +38,7 @@ public class UserDetails {
 
 	}
 	
-	public UserDetails(String name, String surname, String phoneNumber, String birthDate, String address, String postalCode, String city) {
+	public UserDetails(String name, String surname, String phoneNumber, Date birthDate, String address, String postalCode, String city) {
 		this.name = name;
 		this.surname = surname;
 		this.phoneNumber = phoneNumber;
@@ -69,11 +80,11 @@ public class UserDetails {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 

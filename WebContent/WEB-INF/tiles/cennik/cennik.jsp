@@ -13,13 +13,13 @@
 		<c:forEach var="price" items="${prices}">
 			<tr>
 				<td class="noBorderBottom"><c:out value="${price.vehicleType}"></c:out></td>
-				<td>24 H</td>
-				<td><c:out value="${price.pricePerDay}"></c:out> zł</td>
+				<td>Pierwsza doba</td>
+				<td><c:out value="${price.firstDayPrice}"></c:out> zł</td>
 			</tr>
 			<tr>
 				<td class="sep"></td>
-				<td class="sep">1 miesiąc</td>
-				<td class="sep"><c:out value="${price.pricePerMonth}"></c:out> zł</td>
+				<td class="sep">Każda kolejna doba</td>
+				<td class="sep"><c:out value="${price.nextDayPrice}"></c:out> zł</td>
 			</tr>
 		</c:forEach>
 	</tbody>

@@ -1,5 +1,7 @@
 package com.caveof.spring.web.dao;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.transaction.annotation.Transactional;
 
 @Entity
@@ -20,8 +25,16 @@ public class Reservation {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int reservationID;
 	
-	private String startDate;
-	private String expirationDate;
+	@Column(name = "startDate", columnDefinition="DATE")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date startDate;
+	
+	@Column(name = "expirationDate", columnDefinition="DATE")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date expirationDate;
+	
 	private int numberOfVehicles;
 	private double charge;
 	private boolean doesPaid;
@@ -33,7 +46,7 @@ public class Reservation {
 	public Reservation() {
 	}
 	
-	public Reservation(User user, String startDate, String expirationDate, int numberOfVehicles, double charge, boolean doesPaid) {
+	public Reservation(User user, Date startDate, Date expirationDate, int numberOfVehicles, double charge, boolean doesPaid) {
 		this.user = user;
 		this.startDate = startDate;
 		this.expirationDate = expirationDate;
@@ -42,7 +55,7 @@ public class Reservation {
 		this.doesPaid = doesPaid;
 	}
 	
-	public Reservation(int reservationID, User user, String startDate, String expirationDate, int numberOfVehicles, double charge, boolean doesPaid) {
+	public Reservation(int reservationID, User user, Date startDate, Date expirationDate, int numberOfVehicles, double charge, boolean doesPaid) {
 		this.reservationID = reservationID;
 		this.user = user;
 		this.startDate = startDate;
@@ -60,19 +73,19 @@ public class Reservation {
 		this.reservationID = reservationID;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getExpirationDate() {
+	public Date getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(String expirationDate) {
+	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 
