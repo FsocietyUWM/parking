@@ -18,14 +18,7 @@
 				<li><a href="<c:url value="/newreservation"/>">Dokonaj rezerwacji</a></li>
 				<li><a href="<c:url value="/cennik"/>">Cennik</a></li>
 				<li><a href="<c:url value="/kontakt"/>">Kontakt</a></li>
-				
-				<li class="dropdown"><a class="dropdown-toggle" href="#">Dojazd&nbsp;<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Parking 1</a></li>
-						<li><a href="#">Parking 2</a></li>
-						<li><a href="#">Parking 3</a></li>
-					</ul>
-				</li>
+				<li><a href="#">Dojazd</a></li>
 				
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown"><a class="dropdown-toggle" href="#">Mój profil&nbsp;<span class="caret"></span></a>
