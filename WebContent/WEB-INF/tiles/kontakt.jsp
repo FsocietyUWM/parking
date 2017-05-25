@@ -7,8 +7,4 @@
 <p>Czynny 24h</p>
 <p>tel. 22 555 55 55</p>
 <p>email: <a>parking.fsociety@gmail.com</a></p>
-
-
-
-
 </div>

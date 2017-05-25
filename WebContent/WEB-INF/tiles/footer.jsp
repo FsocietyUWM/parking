@@ -1,4 +1,3 @@
-<div class="container">
-	<hr/>
-	Fsociety Sqad Project
+<div id="footer">
+	&copy; Untitled. All rights reserved. Design by Fsociety.
 </div>
