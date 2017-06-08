@@ -1,3 +1,5 @@
-<div id="footer">
-	&copy; Untitled. All rights reserved. Design by Fsociety.
-</div>
+
+<footer class="footer">
+	<hr>
+	<p>&copy; 2017 Fsociety</p>
+</footer>

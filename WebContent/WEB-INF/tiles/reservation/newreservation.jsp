@@ -511,112 +511,109 @@ $(document).ready(function(){
 </script>
 
 
-<div class="container">
+<c:if test="${iloscWolnychMiejsc <= 2}">
+	<h3 style="color:red; text-align: center;">Uwaga! Ilość wolnych miejsc parkingowych wynosi: ${iloscWolnychMiejsc}</h3>
+	<hr>
+</c:if>
 
-	<c:if test="${iloscWolnychMiejsc <= 2}">
-		<h3 style="color:red; text-align: center;">Uwaga! Ilość wolnych miejsc parkingowych wynosi: ${iloscWolnychMiejsc}</h3>
-		<hr>
-	</c:if>
-	
-	<sf:form id="createNewReservation" modelAttribute="reservationDetails"
-		method="post"
-		action="${pageContext.request.contextPath}/createreservation"
-		cssClass="form-horizontal">
-	
-		<legend>Formularz rezerwacji miejsca parkingowego</legend>
-	
-		<div style="margin-top: 25px" class="form-group">
-			<label class="col-md-2 control-label" for="textinput">Pierwszy dzień</label>
-			<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp1" class="input-append date">
-				<sf:input path="reservation.startDate" name="reservation.startDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
-				<br>
-			</div>
+<sf:form id="createNewReservation" modelAttribute="reservationDetails"
+	method="post"
+	action="${pageContext.request.contextPath}/createreservation"
+	cssClass="form-horizontal">
+
+	<legend>Formularz rezerwacji miejsca parkingowego</legend>
+
+	<div style="margin-top: 25px" class="form-group">
+		<label class="col-md-2 control-label" for="textinput">Pierwszy dzień</label>
+		<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp1" class="input-append date">
+			<sf:input path="reservation.startDate" name="reservation.startDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
+			<br>
 		</div>
-	
-		<div class="form-group">
-			<label class="col-md-2 control-label" for="textinput">Ostatni dzień</label>
-			<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp2" class="input-append date">
-				<sf:input path="reservation.expirationDate" name="reservation.expirationDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
-				<br>
-			</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-2 control-label" for="textinput">Ostatni dzień</label>
+		<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp2" class="input-append date">
+			<sf:input path="reservation.expirationDate" name="reservation.expirationDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
+			<br>
 		</div>
-	
-		<div class="form-group">
-			<label class="col-md-2 control-label" for="textinput">Ilość pojazdów</label>
-			<div class="col-md-15 input-group">
-				<sf:input id="numberOfVehicles" path="reservation.numberOfVehicles" name="reservation.numberOfVehicles" type="text"
-					cssClass="form-control" readonly="true" value="1"/>
-				<sf:button id="hide" type="button" cssClass="btn btn-default btn-number input-group-btn">
-					<span class="glyphicon glyphicon-minus"></span>
-				</sf:button>
-				<sf:button id="show" type="button" cssClass="btn btn-default btn-number input-group-btn">
-					<span class="glyphicon glyphicon-plus"></span>
-				</sf:button>
-				<br>
-			</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-2 control-label" for="textinput">Ilość pojazdów</label>
+		<div class="col-md-15 input-group">
+			<sf:input id="numberOfVehicles" path="reservation.numberOfVehicles" name="reservation.numberOfVehicles" type="text"
+				cssClass="form-control" readonly="true" value="1"/>
+			<sf:button id="hide" type="button" cssClass="btn btn-default btn-number input-group-btn">
+				<span class="glyphicon glyphicon-minus"></span>
+			</sf:button>
+			<sf:button id="show" type="button" cssClass="btn btn-default btn-number input-group-btn">
+				<span class="glyphicon glyphicon-plus"></span>
+			</sf:button>
+			<br>
 		</div>
-		
-		<table class="table">
-			<thead>
+	</div>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Typ pojazdu</th>
+				<th>Numer rejestracyjny</th>
+				<th>Producent</th>
+				<th>Model</th>
+			</tr>
+		</thead>
+		<tbody>
 				<tr>
-					<th>Typ pojazdu</th>
-					<th>Numer rejestracyjny</th>
-					<th>Producent</th>
-					<th>Model</th>
+					<td>
+						<sf:select cssClass="form-control" path="vehicles[0].vehicleType">
+							<sf:option value="" label="- wybierz -" disabled="true" selected="true" />
+							<c:forEach var="item" items="${reservationDetails.cennikPrices}">
+								<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/>
+							</c:forEach>
+						</sf:select>
+					</td>
+					<td><sf:input cssClass="form-control" path="vehicles[0].registrationNumber"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[0].manufacturer"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[0].model"/></td>
 				</tr>
-			</thead>
-			<tbody>
-					<tr>
-						<td>
-							<sf:select cssClass="form-control" path="vehicles[0].vehicleType">
-								<sf:option value="" label="Wybierz typ pojazdu:" disabled="true" selected="true" />
-								<c:forEach var="item" items="${reservationDetails.cennikPrices}">
-									<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/>
-								</c:forEach>
-							</sf:select>
-						</td>
-						<td><sf:input cssClass="form-control" path="vehicles[0].registrationNumber"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[0].manufacturer"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[0].model"/></td>
-					</tr>
-					<tr id="2">
-						<td>
-							<sf:select cssClass="form-control" path="vehicles[1].vehicleType">
-								<sf:option value="" label="Wybierz typ pojazdu:" disabled="true" selected="true" />
-								<c:forEach var="item" items="${reservationDetails.cennikPrices}">
-									<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/> 
-								</c:forEach>
-							</sf:select>
-						</td>
-						<td><sf:input cssClass="form-control" path="vehicles[1].registrationNumber"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[1].manufacturer"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[1].model"/></td>
-					</tr>
-					<tr id="3">
-						<td>
-							<sf:select cssClass="form-control" path="vehicles[2].vehicleType">
-								<sf:option value="" label="Wybierz typ pojazdu:" disabled="true" selected="true" />
-								<c:forEach var="item" items="${reservationDetails.cennikPrices}">
-									<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/>  
-								</c:forEach>
-							</sf:select>
-						</td>
-						<td><sf:input cssClass="form-control" path="vehicles[2].registrationNumber"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[2].manufacturer"/></td>
-						<td><sf:input cssClass="form-control" path="vehicles[2].model"/></td>
-					</tr>
-			</tbody>
-		</table>
-	
-		<div style="margin-top: 10px" class="form-group">
-			<!-- Button -->
-			<label class="col-md-2 control-label" for="singlebutton"></label>
-			<div class="col-md-15">
-				<a id="btn-signup"
-					href="javascript:document.getElementById('createNewReservation').submit();"
-					class="btn btn-info">Zarezerwuj</a>
-			</div>
+				<tr id="2">
+					<td>
+						<sf:select cssClass="form-control" path="vehicles[1].vehicleType">
+							<sf:option value="" label="- wybierz -" disabled="true" selected="true" />
+							<c:forEach var="item" items="${reservationDetails.cennikPrices}">
+								<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/> 
+							</c:forEach>
+						</sf:select>
+					</td>
+					<td><sf:input cssClass="form-control" path="vehicles[1].registrationNumber"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[1].manufacturer"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[1].model"/></td>
+				</tr>
+				<tr id="3">
+					<td>
+						<sf:select cssClass="form-control" path="vehicles[2].vehicleType">
+							<sf:option value="" label="- wybierz -" disabled="true" selected="true" />
+							<c:forEach var="item" items="${reservationDetails.cennikPrices}">
+								<sf:option id="${item.vehicleType}" value="${item.vehicleType}"/>  
+							</c:forEach>
+						</sf:select>
+					</td>
+					<td><sf:input cssClass="form-control" path="vehicles[2].registrationNumber"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[2].manufacturer"/></td>
+					<td><sf:input cssClass="form-control" path="vehicles[2].model"/></td>
+				</tr>
+		</tbody>
+	</table>
+
+	<div style="margin-top: 10px" class="form-group">
+		<!-- Button -->
+		<label class="col-md-2 control-label" for="singlebutton"></label>
+		<div class="col-md-15">
+			<a id="btn-signup"
+				href="javascript:document.getElementById('createNewReservation').submit();"
+				class="btn btn-info">Zarezerwuj</a>
 		</div>
-	
-	</sf:form>
-</div>
+	</div>
+
+</sf:form>

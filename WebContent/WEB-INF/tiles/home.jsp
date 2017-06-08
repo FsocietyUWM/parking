@@ -1,39 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 
-<table class="offers">
-	<tr>
-		<td>Username</td>
-		<td>Email</td>
-		<td>Text</td>
-	</tr>
-	<c:forEach var="offer" items="${offers}">
-		<tr>
-			<td><c:out value="${offer.user.username}"></c:out></td>
-			<td><c:out value="${offer.user.email}"></c:out></td>
-			<td><c:out value="${offer.text}"></c:out></td>
-		</tr>
-	</c:forEach>
-</table>	
+<div class="jumbotron">
+	<h1>Fsocity</h1>
+	<p class="lead">Parking dla twojego samochodu.</p>
+	<p>
+		<a class="btn btn-lg btn-success" href="#" role="button">Sprawdz nas</a>
+	</p>
+</div>
 
-<br/>
+<div class="row marketing">
+	<div class="col-lg-6">
+		<h4>Podstawowe informacje</h4>
+		<p>Donec id elit non mi porta gravida at eget metus. Maecenas
+			faucibus mollis interdum.</p>
 
-<c:choose>
-	<c:when test="${hasOffer}">
-		<p><a href="${pageContext.request.contextPath}/createoffer">Edit or delete your current offer.</a></p>
-	</c:when>
-	
-	<c:otherwise>
-		<p><a href="${pageContext.request.contextPath}/createoffer">Add new offer.</a></p>
-	</c:otherwise>
-</c:choose>
+		<h4>Godziny otwarcia</h4>
+		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+			Cras mattis consectetur purus sit amet fermentum.</p>
 
+	</div>
 
-<!-- <p><a href="${pageContext.request.contextPath}/offers">Show current offers.</a></p> -->
+	<div class="col-lg-6">
+		<h4>Ilosc wolnych miejsc</h4>
+		<p>Donec id elit non mi porta gravida at eget metus. Maecenas
+			faucibus mollis interdum.</p>
 
-<sec:authorize access="hasAuthority('ROLE_ADMIN')">
-	<p><a href="<c:url value="/admin"/>">Admin</a></p>
-</sec:authorize>
+		<h4>Dane kontaktowe</h4>
+		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+			Cras mattis consectetur purus sit amet fermentum.</p>
+
+	</div>
+</div>
+
