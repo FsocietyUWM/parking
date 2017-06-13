@@ -24,6 +24,7 @@
 			<li><a href="<c:url value="/userdetails"/>">Moje dane</a></li>
 			<li><a href="<c:url value="/myreservations"/>">Moje rezerwacje</a></li>
 			<li><a href="<c:url value="/changepw"/>">Zmień hasło</a></li>
+			<li><a href="#>">Panel administratora</a></li>
 			</ul>
 		</li>
 	
