@@ -15,7 +15,7 @@
 		<li role="presentation"><a href="<c:url value="/newreservation"/>">Dokonaj rezerwacji</a></li>
 		<li role="presentation"><a href="<c:url value="/cennik"/>">Cennik</a></li>
 		<li role="presentation"><a href="<c:url value="/kontakt"/>">Kontakt</a></li>
-		<li role="presentation"><a href="Dojazd.html">Dojazd</a></li>
+		<li role="presentation"><a href="#">Dojazd</a></li>
 		
 		<sec:authorize access="isAuthenticated()">
 		<li class="dropdown">
