@@ -6761,6 +6761,7 @@ button.close {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -6837,4 +6838,8 @@ body {
   }
 }
 
+.nav-pills.pull-right .dropdown-menu {
+    right: 0;
+    left: auto;
+}
 /*# sourceMappingURL=bootstrap.css.map */
