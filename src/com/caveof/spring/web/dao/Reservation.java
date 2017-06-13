@@ -27,12 +27,12 @@ public class Reservation {
 	
 	@Column(name = "startDate", columnDefinition="DATE")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 	
 	@Column(name = "expirationDate", columnDefinition="DATE")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date expirationDate;
 	
 	private int numberOfVehicles;

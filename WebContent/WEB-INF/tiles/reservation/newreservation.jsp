@@ -522,19 +522,19 @@ $(document).ready(function(){
 	cssClass="form-horizontal">
 
 	<legend>Formularz rezerwacji miejsca parkingowego</legend>
-
+	
 	<div style="margin-top: 25px" class="form-group">
-		<label class="col-md-2 control-label" for="textinput">Pierwszy dzień</label>
-		<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp1" class="input-append date">
-			<sf:input path="reservation.startDate" name="reservation.startDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
+		<label class="col-md-2 control-label">Pierwszy dzień</label>
+		<div class="col-md-4">
+			<sf:input path="reservation.startDate" name="reservation.startDate"  type="date" placeholder="" class="form-control input-md" min="2017-06-10" />
 			<br>
 		</div>
 	</div>
-
-	<div class="form-group">
-		<label class="col-md-2 control-label" for="textinput">Ostatni dzień</label>
-		<div data-date-format="dd-mm-yyyy" data-date="01-01-2000" id="dp2" class="input-append date">
-			<sf:input path="reservation.expirationDate" name="reservation.expirationDate" type="text" readonly="true" size="16" cssClass="form-control add-on" />
+	
+	<div style="margin-top: 25px" class="form-group">
+		<label class="col-md-2 control-label">Ostatni dzień</label>
+		<div class="col-md-4">
+			<sf:input path="reservation.expirationDate" name="reservation.expirationDate"  type="date" placeholder="" class="form-control input-md" min="2017-06-10" />
 			<br>
 		</div>
 	</div>
@@ -617,3 +617,4 @@ $(document).ready(function(){
 	</div>
 
 </sf:form>
+
