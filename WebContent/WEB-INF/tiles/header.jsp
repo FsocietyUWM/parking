@@ -7,6 +7,7 @@
 
 <div class="header clearfix">
 
+<<<<<<< HEAD
 	<nav>
 	<ul class="nav nav-pills pull-right">
 		<li role="presentation"><a href="<c:url value="/newreservation"/>">Dokonaj rezerwacji</a></li>
@@ -66,6 +67,19 @@
 				<li><a href="<c:url value="/newaccount"/>"><span class="glyphicon glyphicon-user"></span>&nbsp;Załóż konto</a></li>
 				<li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Zaloguj się</a></li>
 			</sec:authorize>
+=======
+</div>
+<div class="container">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+
+			<ul class="nav navbar-nav">
+				<li><a href="<c:url value="/"/>">Strona główna</a></li>
+				<li><a href="<c:url value="/newreservation"/>">Dokonaj rezerwacji</a></li>
+				<li><a href="<c:url value="/cennik"/>">Cennik</a></li>
+				<li><a href="<c:url value="/kontakt"/>">Kontakt</a></li>
+				<li><a href="#">Dojazd</a></li>
+>>>>>>> 4f9ced90dd98627d1cb4de798e57ebb83d9fbb49
 				
 			<sec:authorize access="isAuthenticated()">
 				<li><a href="javascript:document.getElementById('logout-form').submit();">
