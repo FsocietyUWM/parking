@@ -4961,8 +4961,7 @@ a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #dff0d8;
+   background-image: url("/parking-fsociety/WebContent/resources/images/parking_bg.jpeg");
 }
 .jumbotron h1,
 .jumbotron .h1 {
@@ -6835,6 +6834,7 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+   background-color: url("tlo2/jpg");
   }
 }
 
