@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -15,17 +17,29 @@ import javax.persistence.Table;
 public class ParkingSpace {
 	
 	@Id
-	private String spaceNumber;
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // Autoincrement
+	private int parkingSpaceID;
 	
+	private String spaceNumber;
 	private boolean available = true;
+	private boolean toRemove = false;
 
 	public ParkingSpace() {
 
 	}
 	
-	public ParkingSpace(String spaceNumber, boolean available) {
+	public ParkingSpace(String spaceNumber, boolean available, boolean toRemove) {
 		this.spaceNumber = spaceNumber;
 		this.available = available;
+		this.toRemove = toRemove;
+	}
+
+	public int getParkingSpaceID() {
+		return parkingSpaceID;
+	}
+
+	public void setParkingSpaceID(int parkingSpaceID) {
+		this.parkingSpaceID = parkingSpaceID;
 	}
 
 	public String getSpaceNumber() {
@@ -44,9 +58,18 @@ public class ParkingSpace {
 		this.available = available;
 	}
 
+	public boolean isToRemove() {
+		return toRemove;
+	}
+
+	public void setToRemove(boolean toRemove) {
+		this.toRemove = toRemove;
+	}
+
 	@Override
 	public String toString() {
-		return "ParkingSpace [spaceNumber=" + spaceNumber + ", available=" + available + "]";
+		return "ParkingSpace [parkingSpaceID=" + parkingSpaceID + ", spaceNumber=" + spaceNumber + ", available="
+				+ available + ", toRemove=" + toRemove + "]";
 	}
 
 }

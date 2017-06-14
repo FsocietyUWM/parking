@@ -63,26 +63,6 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/admin.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="offers" extends="parking.base">
-		<put-attribute name="title" value="Current Offers"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/other/offers.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="createoffer" extends="parking.base">
-		<put-attribute name="title" value="Create Offer Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/other/createoffer.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="offercreated" extends="parking.base">
-		<put-attribute name="title" value="Offer Created Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/other/offercreated.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="offerdeleted" extends="parking.base">
-		<put-attribute name="title" value="Offer Deleted Page"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/other/offerdeleted.jsp"></put-attribute>
-	</definition>
-	
 	<definition name="denied" extends="parking.base">
 		<put-attribute name="title" value="Access Denied Page"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/other/denied.jsp"></put-attribute>
@@ -123,14 +103,19 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/reservation/parkingspaces.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="editparkingspaces" extends="parking.base">
+		<put-attribute name="title" value="Edytuj dostepne miejsca parkingowe"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/reservation/editparkingspaces.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="newparkingspace" extends="parking.base">
 		<put-attribute name="title" value="Stworz miejsce parkingowe"></put-attribute>
 		<put-attribute name="content" value="/WEB-INF/tiles/reservation/newparkingspace.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="parkingspacecreated" extends="parking.base">
-		<put-attribute name="title" value="Miejsce parkingowe zostalo stworzone"></put-attribute>
-		<put-attribute name="content" value="/WEB-INF/tiles/reservation/parkingspacecreated.jsp"></put-attribute>
+	<definition name="parkingupdated" extends="parking.base">
+		<put-attribute name="title" value="Parking zostal zaktualizowany"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/reservation/parkingupdated.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="newreservation" extends="parking.base">

@@ -29,7 +29,7 @@ public class Vehicle {
 	private Reservation reservation;
 	
 	@OneToOne
-	@JoinColumn(name="spaceNumber")
+	@JoinColumn(name="parkingSpaceID")
 	private ParkingSpace parkingSpace;
 	
 	public Vehicle() {

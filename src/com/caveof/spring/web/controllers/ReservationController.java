@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.caveof.spring.web.dao.Cennik;
+import com.caveof.spring.web.dao.CennikPrices;
+import com.caveof.spring.web.dao.FORM_editParkingSpaces;
 import com.caveof.spring.web.dao.ParkingSpace;
 import com.caveof.spring.web.dao.Reservation;
 import com.caveof.spring.web.dao.ReservationDetails;
@@ -41,10 +43,22 @@ public class ReservationController {
 		
 		String username = principal.getName();
 		User authUser = usersService.getUser(username);
-		
 		List<Reservation> reservations = reservationsService.getReservations(authUser.getUsername());
-		model.addAttribute("reservations", reservations);
-
+		
+		List<ReservationDetails> myReservations = new ArrayList<ReservationDetails>();
+		for(Reservation reservation : reservations)
+		{
+			ReservationDetails reservationDetails = new ReservationDetails();
+			reservationDetails.setReservation(reservation);
+			
+			List<Vehicle> vehicles = reservationsService.getVehicles(reservation.getReservationID());
+			reservationDetails.setVehicles(vehicles);
+			
+			myReservations.add(reservationDetails);
+		}
+		
+		model.addAttribute("myReservations", myReservations);
+		
 		return "myreservations";
 	}
 	
@@ -131,6 +145,7 @@ public class ReservationController {
 	public String showParkingSpaces(Model model) {
 		
 		List<ParkingSpace> parkingSpaces = reservationsService.getParkingSpaces();
+		List<Vehicle> allVehicles = reservationsService.getVehicles();
 		
 		int iloscWszyskichMiejsc = reservationsService.getNumberOfAllParkingSpaces();
 		int iloscWolnychMiejsc = reservationsService.getNumberOfAvailableParkingSpaces();
@@ -140,6 +155,7 @@ public class ReservationController {
 		model.addAttribute("iloscWszyskichMiejsc", iloscWszyskichMiejsc);
 		model.addAttribute("iloscWolnychMiejsc", iloscWolnychMiejsc);
 		model.addAttribute("iloscZajetychMiejsc", iloscZajetychMiejsc);
+		model.addAttribute("allVehicles", allVehicles);
 
 		return "parkingspaces";
 	}
@@ -165,67 +181,35 @@ public class ReservationController {
 		
 		reservationsService.saveParkingSpace(parkingSpace);
 		
-		return "parkingspacecreated";
+		return "parkingupdated";
 	}
 	
+	@RequestMapping("/editparkingspaces")
+	public String editParkingSpaces(Model model) {
 
-	/*
-	@RequestMapping("/cennik")
-	public String showCennik(Model model) {
-
-		List<Cennik> prices = cennikService.getCennik();
-		model.addAttribute("prices", prices);
-
-		return "cennik";
-	}
-
-	
-	@RequestMapping("/addtocennik")
-	public String addToCennik(Model model) {
+		List<ParkingSpace> parkingSpaces = reservationsService.getAvailableParkingSpaces();
+		FORM_editParkingSpaces formParkingSpaces = new FORM_editParkingSpaces(parkingSpaces);
 		
-		Cennik price = new Cennik();
+		model.addAttribute("formParkingSpaces", formParkingSpaces);
 
-		CennikPrices cennikPrices = new CennikPrices();
-		cennikPrices.addPrice(price);
-		model.addAttribute("cennikPrices", cennikPrices);
-
-		return "addtocennik";
+		return "editparkingspaces";
 	}
 	
-	
-	@RequestMapping("/editcennik")
-	public String editCennik(Model model) {
-
-		List<Cennik> prices = cennikService.getCennik();
-		CennikPrices cennikPrices = new CennikPrices(prices);
-		model.addAttribute("cennikPrices", cennikPrices);
-
-		return "editcennik";
-	}
-
-
-	@RequestMapping("/updatecennik")
-	public String updateCennik(Model model, CennikPrices cennikPrices, BindingResult result) {
+	@RequestMapping("/updateparkingspaces")
+	public String updateCennik(Model model, FORM_editParkingSpaces formParkingSpaces, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "editcennik";
+			return "editparkingspaces";
 		}
 
-		for (Cennik price : cennikPrices.getCennikPrices()) {
-			if (price.isToRemove() == true) {
-				cennikService.delete(price);
+		for (ParkingSpace parkingSpace : formParkingSpaces.getParkingSpaces()) {
+			if (parkingSpace.isToRemove() == true) {
+				reservationsService.delete(parkingSpace);
 			} else {
-				cennikService.saveOrUpdate(price);
+				reservationsService.saveOrUpdate(parkingSpace);
 			}
 		}
 			
-		return "cennikupdated";
+		return "parkingupdated";
 	}
-
-	
-	@RequestMapping("/kontakt")
-	public String showKontakt() {
-		return "kontakt";
-	}
-	*/
 }

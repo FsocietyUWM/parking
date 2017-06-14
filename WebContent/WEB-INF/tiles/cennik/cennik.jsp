@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <table class="table">
 	<thead>
@@ -25,8 +26,11 @@
 	</tbody>
 </table>
 
+
+<sec:authorize access="hasAuthority('ROLE_ADMIN')">
 <a href="<c:url value="/addtocennik"/>" class="btn btn-info">Dodaj pozycje do cennika</a>
 
 <c:if test="${prices.size() > 0}">
 <a href="<c:url value="/editcennik"/>" class="btn btn-info">Edytuj cennik</a>
 </c:if>
+</sec:authorize>

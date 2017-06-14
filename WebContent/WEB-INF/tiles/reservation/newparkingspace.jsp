@@ -23,5 +23,7 @@
 		<a id="btn-signup"
 			href="javascript:document.getElementById('createParkingSpace').submit();"
 			class="btn btn-success">Dodaj miejsce</a>
+			
+		<a href="<c:url value="/parkingspaces"/>" class="btn btn-default">Powrót</a>
 	</div>
 </div>

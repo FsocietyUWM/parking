@@ -11,23 +11,51 @@
 		<tr>
 			<th>Numer miejsca</th>
 			<th>Status miejsca</th>
+			<th>Numer rezerwacji</th>
+			<th>Numer rejestracyjny pojazdu</th>
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="space" items="${parkingSpaces}">
+		<c:forEach var="vehicle" items="${allVehicles}">
 			<tr>
-				<td style="color:blue"><c:out value="${space.spaceNumber}"></c:out></td>
+				<td style="color:blue"><c:out value="${vehicle.parkingSpace.spaceNumber}"></c:out></td>
 				<td>
-					<c:if test="${space.available}">
-						<p style="color:green; display:inline">WOLNE</p>
-					</c:if>
-					<c:if test="${space.available == false}">
-						<p style="color:red; display:inline">ZAJĘTE</p> &nbsp; &nbsp; &nbsp;[ numer_rezerwacji ] - [ numer_rejestracyjny_pojazdu ]
-					</c:if>
+					<p style="color:red; display:inline">ZAJĘTE</p>
+				</td>
+				
+				<td>
+					<c:out value="${vehicle.reservation.reservationID}"></c:out>
+				</td>
+				
+				<td>
+					<c:out value="${vehicle.registrationNumber}"></c:out>
 				</td>
 			</tr>
 		</c:forEach>
+		
+		<c:forEach var="space" items="${parkingSpaces}">
+			<c:if test="${space.available}">
+				<tr>
+					<td style="color:blue">
+						<c:out value="${space.spaceNumber}"></c:out>
+					</td>
+					<td>
+						<p style="color:green; display:inline">WOLNE</p>
+					</td>
+					
+					<td>
+						<p style="color:green; display:inline">---</p>
+					</td>
+					
+					<td>
+						<p style="color:green; display:inline">---</p>
+					</td>
+				</tr>
+			</c:if>
+		</c:forEach>
+		
 	</tbody>
 </table>
 
 <a href="<c:url value="/newparkingspace"/>" class="btn btn-info">Dodaj miejsce na parkingu</a>
+<a href="<c:url value="/editparkingspaces"/>" class="btn btn-info">Edytuj lub usuń miejsce parkingowe</a>

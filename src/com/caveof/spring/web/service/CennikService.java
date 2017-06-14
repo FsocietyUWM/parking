@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.caveof.spring.web.dao.Cennik;
 import com.caveof.spring.web.dao.CennikDao;
-import com.caveof.spring.web.dao.Offer;
 
 @Service("cennikService")
 public class CennikService {

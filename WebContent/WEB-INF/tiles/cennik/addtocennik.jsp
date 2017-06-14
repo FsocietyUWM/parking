@@ -33,5 +33,7 @@
 		<a id="btn-signup"
 			href="javascript:document.getElementById('cennik_form').submit();"
 			class="btn btn-success">Dodaj do cennika </a>
+			
+		<a href="<c:url value="/cennik"/>" class="btn btn-default">Powrót</a>
 	</div>
 </div>

@@ -35,6 +35,30 @@ public class ReservationsDao {
 		return crit.list();
 	}
 	
+	// Metoda wyciagajaca z bazy wszystkie rekordy z tabeli reservations
+	@SuppressWarnings("unchecked")
+	public List<Vehicle> getVehicles() {
+		Criteria crit = session().createCriteria(Vehicle.class);
+		return crit.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Vehicle> getVehicles(String username) {
+		Criteria crit = session().createCriteria(Vehicle.class);
+		crit.createAlias("user", "u");
+		crit.add(Restrictions.eq("u.enabled", true));
+		crit.add(Restrictions.eq("u.username", username));
+		return crit.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Vehicle> getVehicles(int reservationID) {
+		Criteria crit = session().createCriteria(Vehicle.class);
+		crit.createAlias("reservation", "r");
+		crit.add(Restrictions.eq("r.reservationID", reservationID));
+		return crit.list();
+	}
+	
 	
 	// Metoda wyciagajaca z bazy wszystkie rekordy z tabeli reservations konkretnego uzytkownika
 	@SuppressWarnings("unchecked")
@@ -98,6 +122,13 @@ public class ReservationsDao {
 		return (ParkingSpace)crit.list().get(0);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<ParkingSpace> getAvailableParkingSpaces() {
+		Criteria crit = session().createCriteria(ParkingSpace.class);
+		crit.add(Restrictions.eq("available", true));
+		return crit.list();
+	}
+	
 	public int getNumberOfAllParkingSpaces() {
 		Criteria crit = session().createCriteria(ParkingSpace.class);
 		return crit.list().size();
@@ -113,6 +144,14 @@ public class ReservationsDao {
 		Criteria crit = session().createCriteria(ParkingSpace.class);
 		crit.add(Restrictions.eq("available", false));
 		return crit.list().size();
-	}	
+	}
+	
+	public void delete(ParkingSpace parkingSpace) {
+		session().delete(parkingSpace);
+	}
+	
+	public void saveOrUpdate(ParkingSpace parkingSpace) {
+		session().saveOrUpdate(parkingSpace);
+	}
 
 }

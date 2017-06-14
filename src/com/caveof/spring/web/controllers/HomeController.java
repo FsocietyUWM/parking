@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.caveof.spring.web.dao.Cennik;
 import com.caveof.spring.web.dao.CennikPrices;
-import com.caveof.spring.web.dao.Offer;
+import com.caveof.spring.web.dao.User;
 import com.caveof.spring.web.service.CennikService;
-import com.caveof.spring.web.service.OffersService;
+import com.caveof.spring.web.service.UsersService;
 
 @Controller
 public class HomeController {
 
 	// private static Logger logger = Logger.getLogger(HomeController.class);
 
-	@Autowired
-	private OffersService offersService;
 
 	@Autowired
 	private CennikService cennikService;
+	
+	@Autowired
+	private UsersService usersService;
 
 	//////////////////////////////////////////////////////////
 
@@ -34,16 +35,16 @@ public class HomeController {
 
 		// logger.info("Showing home page...");
 
-		List<Offer> offers = offersService.getOffers();
-		model.addAttribute("offers", offers);
-
-		boolean hasOffer = false;
-		if (principal != null) {
-			hasOffer = offersService.hasOffer(principal.getName());
-		}
-		model.addAttribute("hasOffer", hasOffer);
-
 		return "home";
+	}
+	
+	@RequestMapping("/admin")
+	public String showAdmin(Model model) {
+		
+		List<User> users = usersService.getAllUsers();
+		
+		model.addAttribute("users", users);
+		return "admin";
 	}
 
 	

@@ -2,4 +2,4 @@
 
 
 <p>Dziękujemy za zarezerwownie miejsca na naszym parkingu.</p><br/>
-<p>Aby dokończyć proces rezerwacji, przejdź do płatności.</p><br/>
+<a href="<c:url value="/cennik"/>" class="btn btn-info">Szczegóły rezerwacji</a>

@@ -16,24 +16,22 @@
 
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/admin" access="hasAuthority('ROLE_ADMIN')" />
-		<security:intercept-url pattern="/createoffer" access="isAuthenticated()" />
-		<security:intercept-url pattern="/docreate" access="isAuthenticated()" />
-		<security:intercept-url pattern="/offercreated" access="isAuthenticated()" />
-		<security:intercept-url pattern="/offerdeleted" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/cennik" access="permitAll" />
-		<security:intercept-url pattern="/editcennik" access="permitAll" />
-		<security:intercept-url pattern="/updatecennik" access="permitAll" />
-		<security:intercept-url pattern="/addtocennik" access="permitAll" />
+		<security:intercept-url pattern="/editcennik" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/updatecennik" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addtocennik" access="hasAuthority('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/kontakt" access="permitAll" />
-		<security:intercept-url pattern="/parkingspaces" access="permitAll" />
-		<security:intercept-url pattern="/newparkingspace" access="permitAll" />
-		<security:intercept-url pattern="/createparkingspace" access="permitAll" />
-		<security:intercept-url pattern="/newreservation" access="permitAll" />
+		<security:intercept-url pattern="/parkingspaces" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/editparkingspaces" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/newparkingspace" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/updateparkingspaces" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/createparkingspace" access="hasAuthority('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/newreservation" access="isAuthenticated()" />
 		<security:intercept-url pattern="/nospaces" access="permitAll" />
-		<security:intercept-url pattern="/createreservation" access="permitAll" />
-		<security:intercept-url pattern="/reservationcreated" access="permitAll" />
-		<security:intercept-url pattern="/myreservations" access="permitAll" />
+		<security:intercept-url pattern="/createreservation" access="isAuthenticated()" />
+		<security:intercept-url pattern="/reservationcreated" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/myreservations" access="isAuthenticated()" />
 		<security:intercept-url pattern="/denied" access="permitAll" />
 		<security:intercept-url pattern="/loggedout" access="permitAll" />
 		<security:intercept-url pattern="/newaccount" access="permitAll" />
@@ -45,8 +43,7 @@
 		<security:intercept-url pattern="/changepw" access="isAuthenticated()" />
 		<security:intercept-url pattern="/updatepw" access="isAuthenticated()" />
 		<security:intercept-url pattern="/static/**" access="permitAll" />
-		<security:intercept-url pattern="/login" access="permitAll" />
-		<security:intercept-url pattern="/offers" access="permitAll" />
+		<security:intercept-url pattern="/login" access="!isAuthenticated()" />
 		<security:intercept-url pattern="/**" access="denyAll" />
 		
 		<security:form-login login-page="/login"

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
+import com.caveof.spring.web.dao.Cennik;
 import com.caveof.spring.web.dao.ParkingSpace;
 import com.caveof.spring.web.dao.Reservation;
 import com.caveof.spring.web.dao.ReservationsDao;
@@ -26,6 +27,18 @@ public class ReservationsService {
 	
 	public List<Reservation> getReservations() {
 		return reservationsDao.getReservations();
+	}
+	
+	public List<Vehicle> getVehicles() {
+		return reservationsDao.getVehicles();
+	}
+	
+	public List<Vehicle> getVehicles(String username) {
+		return reservationsDao.getVehicles(username);
+	}
+	
+	public List<Vehicle> getVehicles(int reservationID) {
+		return reservationsDao.getVehicles(reservationID);
 	}
 	
 
@@ -88,6 +101,10 @@ public class ReservationsService {
 		reservationsDao.updateParkingSpace(parkingSpace);
 	}
 	
+	public List<ParkingSpace> getAvailableParkingSpaces() {
+		return reservationsDao.getAvailableParkingSpaces();
+	}
+	
 	public ParkingSpace getAvailableParkingSpace() {
 		return reservationsDao.getAvailableParkingSpace();
 	}
@@ -104,6 +121,12 @@ public class ReservationsService {
 		return reservationsDao.getNumberOfTakenParkingSpaces();
 	}
 	
+	public void delete(ParkingSpace parkingSpace) {
+		reservationsDao.delete(parkingSpace);
+	}
 	
-
+	public void saveOrUpdate(ParkingSpace parkingSpace) {
+		reservationsDao.saveOrUpdate(parkingSpace);
+	}
+	
 }
